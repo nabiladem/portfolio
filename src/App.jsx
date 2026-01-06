@@ -45,6 +45,12 @@ function App() {
           I am Nabil Adem, a software developer with a passion for creating innovative solutions.
         </p>
 
+        <div className="flex items-center justify-center gap-5 mt-6 text-sm text-slate-400 liquid-glass p-4">
+          <span>📍 Based in Phoenix, AZ & Nashville, TN</span>
+          <span className="text-slate-600">|</span>
+          <span className="text-slate-200 font-medium">Open to relocation</span>
+        </div>
+
         <motion.div
           className="flex justify-center gap-6 pt-4"
           variants={{
