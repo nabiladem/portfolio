@@ -19,7 +19,7 @@ function App() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         whileHover="hovered"
-        className="text-center space-y-4 p-8 w-80 max-w-md liquid-glass relative overflow-hidden"
+        className="text-center space-y-12 p-18 w-full max-w-6xl liquid-glass relative overflow-hidden"
       >
         <motion.img
           src="/images/headshot.jpg"
