@@ -14,34 +14,34 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-20 bg-slate-950">
+    <div className="flex flex-col items-start justify-center min-h-screen py-20 px-12 bg-slate-950">
       <motion.header
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         whileHover="hovered"
-        className="text-center space-y-6 p-12 w-full max-w-6xl liquid-glass relative overflow-hidden"
+        className="text-left space-y-6 p-8 w-full max-w-2xl liquid-glass relative overflow-hidden"
       >
         <motion.img
           src="/images/headshot.jpg"
           alt="Nabil Adem"
-          className="w-64 h-64 rounded-full object-cover mx-auto"
+          className="w-48 h-48 rounded-full object-cover mx-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         />
 
         <motion.h1
-          whileHover={{ scale: 1.05, filter: "brightness(1.2)" }}
+          whileHover={{ scale: 1.05, filter: "brightness(1.2)", originX: 0 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          className="text-4xl font-bold font-brand text-slate-100 cursor-default"
+          className="text-4xl font-bold font-brand text-slate-100 cursor-default text-center"
         >
           Nabil Adem
         </motion.h1>
 
-        <h2 className="text-2xl font-semibold text-slate-300">Software Developer</h2>
+        <h2 className="text-2xl font-semibold text-slate-300 text-center">Software Developer</h2>
 
-        <p className="text-xl text-slate-500">
-          <span className="block text-3xl">👋🏾🌍</span>
+        <p className="text-xl text-slate-500 text-center">
+          <span className="block text-3xl text-center">👋🏾🌍</span>
           I am passionate about creating innovative solutions to real-world challenges.
           I enjoy building user-focused applications, learning new technologies, collaborating with others,
           and strengthening my skills through hands-on projects.
