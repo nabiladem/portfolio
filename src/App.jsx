@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaJava, FaChartBar } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaJava, FaChartBar, FaDatabase, FaCubes } from 'react-icons/fa';
 import {
   SiPython, SiGo, SiCplusplus, SiJavascript, SiTypescript,
   SiSwift, SiKotlin, SiRust, SiSpringboot, SiNodedotjs, SiReact,
@@ -9,7 +9,7 @@ import {
   SiPostgresql, SiMongodb, SiAmazondynamodb, SiJupyter,
   SiMysql
 } from 'react-icons/si';
-import { TbBrandCSharp } from 'react-icons/tb';
+import { TbBrandCSharp, TbApi } from 'react-icons/tb';
 
 const socialIcons = [
   { icon: <FaGithub />, link: "https://github.com/nabiladem" },
@@ -47,6 +47,9 @@ const skillIcons = {
   DynamoDB: <SiAmazondynamodb className="text-[#4053D6]" />,
   'Power BI': <FaChartBar className="text-[#F2C811]" />,
   'JupyterHub': <SiJupyter className="text-[#F37626]" />,
+  H2: <FaDatabase className="text-[#0079c1]" />,
+  'REST APIs': <TbApi className="text-[#009688]" />,
+  'Microservices': <FaCubes className="text-[#607D8B]" />,
 };
 
 function App() {
