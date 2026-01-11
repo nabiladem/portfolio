@@ -22,7 +22,7 @@ function App() {
           whileHover="hovered"
           className="text-left space-y-6 p-8 w-full max-w-2xl liquid-glass relative overflow-hidden"
         >
-          <motion.img
+          <motion.img 
             src="/images/headshot.jpg"
             alt="Nabil Adem"
             className="w-48 h-48 rounded-full object-cover mx-auto"
@@ -82,61 +82,72 @@ function App() {
         </motion.header>
 
         <div className="flex flex-col gap-8">
-          <div className="flex flex-wrap gap-2 text-slate-200">
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Java</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Python</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Go</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">C</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">C#</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">JavaScript</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">TypeScript</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Swift</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Kotlin</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Rust</span>
+          <h2 className="text-2xl font-bold text-slate-100">My Skills</h2>
+          
+          <div className="flex flex-col gap-3 text-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Programming Languages</h3>
+            <div className="flex flex-wrap gap-2">
+            {['Java', 'Python', 'Go', 'C', 'C#', 'JavaScript', 'TypeScript', 'Swift', 'Kotlin', 'Rust'].map((skill) => (
+              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                {skill}
+              </span>
+            ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 text-slate-200">
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Spring Boot</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Node.JS</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">React</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">.NET</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Pandas</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">NumPy</span>
+          <div className="flex flex-col gap-3 text-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Frameworks & Libraries</h3>
+            <div className="flex flex-wrap gap-2">
+            {['Spring Boot', 'Node.JS', 'React', '.NET', 'Pandas', 'NumPy'].map((skill) => (
+              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                {skill}
+              </span>
+            ))}
+            </div>
           </div>
           
-          <div className="flex flex-wrap gap-2 text-slate-200">
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Amazon Web Services</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Google Cloud Platform</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Docker</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Kubernetes</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Kafka</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Git</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">CI/CD</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Jenkins</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">GitHub Actions</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">REST APIs</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Microservices</span>
+          <div className="flex flex-col gap-3 text-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Cloud & DevOps</h3>
+            <div className="flex flex-wrap gap-2">
+            {['Amazon Web Services', 'Google Cloud Platform', 'Docker', 'Kubernetes', 'Kafka', 'Git', 'Jenkins', 'GitHub Actions', 'REST APIs', 'Microservices'].map((skill) => (
+              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                {skill}
+              </span>
+            ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 text-slate-200">
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">SQL</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">PostgreSQL</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">MongoDB</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">DynamoDB</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">H2</span>
+          <div className="flex flex-col gap-3 text-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Data & Databases</h3>
+            <div className="flex flex-wrap gap-2">
+            {['SQL', 'PostgreSQL', 'MongoDB', 'DynamoDB', 'H2'].map((skill) => (
+              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                {skill}
+              </span>
+            ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 text-slate-200">
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Power BI</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">JupyterHub</span>
+          <div className="flex flex-col gap-3 text-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Analytics & Reporting</h3>
+            <div className="flex flex-wrap gap-2">
+            {['Power BI', 'JupyterHub'].map((skill) => (
+              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                {skill}
+              </span>
+            ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 text-slate-200">
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Agile</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Scrum</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Test-Driven Development</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Continuous Integration</span>
-            <span className="rounded-full px-4 py-1.5 liquid-glass text-sm whitespace-nowrap">Software Architecture</span>
+          <div className="flex flex-col gap-3 text-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Methodologies</h3>
+            <div className="flex flex-wrap gap-2">
+            {['Agile', 'Scrum', 'Test-Driven Development', 'Continuous Integration', 'Continuous Deployment','Software Architecture'].map((skill) => (
+              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                {skill}
+              </span>
+            ))}
+            </div>
           </div>
         </div>
       </div>
