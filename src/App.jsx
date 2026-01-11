@@ -7,9 +7,9 @@ import {
   SiDotnet, SiPandas, SiNumpy, SiAmazonwebservices, SiGooglecloud,
   SiDocker, SiKubernetes, SiApachekafka, SiGit, SiJenkins, SiGithubactions,
   SiPostgresql, SiMongodb, SiAmazondynamodb, SiJupyter,
-  SiMysql
+  SiMysql, SiScrumalliance
 } from 'react-icons/si';
-import { TbBrandCSharp, TbApi } from 'react-icons/tb';
+import { TbBrandCSharp, TbApi, TbRefresh, TbTestPipe, TbInfinity, TbHierarchy } from 'react-icons/tb';
 
 const socialIcons = [
   { icon: <FaGithub />, link: "https://github.com/nabiladem" },
@@ -50,6 +50,12 @@ const skillIcons = {
   H2: <FaDatabase className="text-[#0079c1]" />,
   'REST APIs': <TbApi className="text-[#009688]" />,
   'Microservices': <FaCubes className="text-[#607D8B]" />,
+  Agile: <TbRefresh className="text-[#4CAF50]" />,
+  Scrum: <SiScrumalliance className="text-[#512D6D]" />,
+  'Test-Driven Development': <TbTestPipe className="text-[#FF9800]" />,
+  'Continuous Integration': <TbInfinity className="text-[#2196F3]" />,
+  'Continuous Deployment': <TbInfinity className="text-[#00BCD4]" />,
+  'Software Architecture': <TbHierarchy className="text-[#9C27B0]" />,
 };
 
 function App() {
