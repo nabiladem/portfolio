@@ -1,17 +1,75 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaJava, FaChartBar } from 'react-icons/fa';
+import {
+  SiPython, SiGo, SiCplusplus, SiJavascript, SiTypescript,
+  SiSwift, SiKotlin, SiRust, SiSpringboot, SiNodedotjs, SiReact,
+  SiDotnet, SiPandas, SiNumpy, SiAmazonwebservices, SiGooglecloud,
+  SiDocker, SiKubernetes, SiApachekafka, SiGit, SiJenkins, SiGithubactions,
+  SiPostgresql, SiMongodb, SiAmazondynamodb, SiJupyter,
+  SiMysql
+} from 'react-icons/si';
+import { TbBrandCSharp } from 'react-icons/tb';
 
 const socialIcons = [
   { icon: <FaGithub />, link: "https://github.com/nabiladem" },
   { icon: <FaLinkedin />, link: "https://linkedin.com/in/nabiladem" }
 ];
 
+const skillIcons = {
+  Java: <FaJava className="text-[#007396]" />,
+  Python: <SiPython className="text-[#3776AB]" />,
+  Go: <SiGo className="text-[#00ADD8]" />,
+  C: <SiCplusplus className="text-[#00599C]" />,
+  'C#': <TbBrandCSharp className="text-[#239120]" />,
+  JavaScript: <SiJavascript className="text-[#F7DF1E]" />,
+  TypeScript: <SiTypescript className="text-[#3178C6]" />,
+  Swift: <SiSwift className="text-[#F05138]" />,
+  Kotlin: <SiKotlin className="text-[#7F52FF]" />,
+  Rust: <SiRust className="text-white" />,
+  'Spring Boot': <SiSpringboot className="text-[#6DB33F]" />,
+  'Node.js': <SiNodedotjs className="text-[#339933]" />,
+  React: <SiReact className="text-[#61DAFB]" />,
+  '.NET': <SiDotnet className="text-[#512BD4]" />,
+  Pandas: <SiPandas className="text-[#150458]" />,
+  NumPy: <SiNumpy className="text-[#013243]" />,
+  'Amazon Web Services': <SiAmazonwebservices className="text-[#FF9900]" />,
+  'Google Cloud Platform': <SiGooglecloud className="text-[#4285F4]" />,
+  Docker: <SiDocker className="text-[#2496ED]" />,
+  Kubernetes: <SiKubernetes className="text-[#326CE5]" />,
+  Kafka: <SiApachekafka className="text-white" />,
+  Git: <SiGit className="text-[#F05032]" />,
+  Jenkins: <SiJenkins className="text-[#D24939]" />,
+  'GitHub Actions': <SiGithubactions className="text-white" />,
+  SQL: <SiMysql className="text-[#4479A1]" />,
+  PostgreSQL: <SiPostgresql className="text-[#4169E1]" />,
+  MongoDB: <SiMongodb className="text-[#47A248]" />,
+  DynamoDB: <SiAmazondynamodb className="text-[#4053D6]" />,
+  'Power BI': <FaChartBar className="text-[#F2C811]" />,
+  'JupyterHub': <SiJupyter className="text-[#F37626]" />,
+};
+
 function App() {
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, y: 10 },
     visible: { opacity: 1, scale: 1, y: 0 }
   };
+
+  const SkillSection = ({ title, skills }) => (
+    <div className="flex flex-col gap-3 text-slate-200">
+      <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">{title}</h3>
+      <div className="flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <span key={skill} className="flex items-center gap-2 liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+            {skillIcons[skill] && (
+              <span className="text-lg">{skillIcons[skill]}</span>
+            )}
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="flex flex-col items-start justify-center min-h-screen py-20 px-12 bg-slate-950">
@@ -22,7 +80,7 @@ function App() {
           whileHover="hovered"
           className="text-left space-y-6 p-8 w-full max-w-2xl liquid-glass relative overflow-hidden"
         >
-          <motion.img 
+          <motion.img
             src="/images/headshot.jpg"
             alt="Nabil Adem"
             className="w-48 h-48 rounded-full object-cover mx-auto"
@@ -83,72 +141,36 @@ function App() {
 
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl font-bold text-slate-100">My Skills</h2>
-          
-          <div className="flex flex-col gap-3 text-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Programming Languages</h3>
-            <div className="flex flex-wrap gap-2">
-            {['Java', 'Python', 'Go', 'C', 'C#', 'JavaScript', 'TypeScript', 'Swift', 'Kotlin', 'Rust'].map((skill) => (
-              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                {skill}
-              </span>
-            ))}
-            </div>
-          </div>
 
-          <div className="flex flex-col gap-3 text-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Frameworks & Libraries</h3>
-            <div className="flex flex-wrap gap-2">
-            {['Spring Boot', 'Node.JS', 'React', '.NET', 'Pandas', 'NumPy'].map((skill) => (
-              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                {skill}
-              </span>
-            ))}
-            </div>
-          </div>
-          
-          <div className="flex flex-col gap-3 text-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Cloud & DevOps</h3>
-            <div className="flex flex-wrap gap-2">
-            {['Amazon Web Services', 'Google Cloud Platform', 'Docker', 'Kubernetes', 'Kafka', 'Git', 'Jenkins', 'GitHub Actions', 'REST APIs', 'Microservices'].map((skill) => (
-              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                {skill}
-              </span>
-            ))}
-            </div>
-          </div>
+          <SkillSection
+            title="Programming Languages"
+            skills={['Java', 'Python', 'Go', 'C', 'C#', 'JavaScript', 'TypeScript', 'Swift', 'Kotlin', 'Rust']}
+          />
 
-          <div className="flex flex-col gap-3 text-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Data & Databases</h3>
-            <div className="flex flex-wrap gap-2">
-            {['SQL', 'PostgreSQL', 'MongoDB', 'DynamoDB', 'H2'].map((skill) => (
-              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                {skill}
-              </span>
-            ))}
-            </div>
-          </div>
+          <SkillSection
+            title="Frameworks & Libraries"
+            skills={['Spring Boot', 'Node.js', 'React', '.NET', 'Pandas', 'NumPy']}
+          />
 
-          <div className="flex flex-col gap-3 text-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Analytics & Reporting</h3>
-            <div className="flex flex-wrap gap-2">
-            {['Power BI', 'JupyterHub'].map((skill) => (
-              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                {skill}
-              </span>
-            ))}
-            </div>
-          </div>
+          <SkillSection
+            title="Cloud & DevOps"
+            skills={['Amazon Web Services', 'Google Cloud Platform', 'Docker', 'Kubernetes', 'Kafka', 'Git', 'Jenkins', 'GitHub Actions', 'REST APIs', 'Microservices']}
+          />
 
-          <div className="flex flex-col gap-3 text-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Methodologies</h3>
-            <div className="flex flex-wrap gap-2">
-            {['Agile', 'Scrum', 'Test-Driven Development', 'Continuous Integration', 'Continuous Deployment','Software Architecture'].map((skill) => (
-              <span key={skill} className="liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                {skill}
-              </span>
-            ))}
-            </div>
-          </div>
+          <SkillSection
+            title="Data & Databases"
+            skills={['SQL', 'PostgreSQL', 'MongoDB', 'DynamoDB', 'H2']}
+          />
+
+          <SkillSection
+            title="Analytics & Reporting"
+            skills={['Power BI', 'JupyterHub']}
+          />
+
+          <SkillSection
+            title="Methodologies"
+            skills={['Agile', 'Scrum', 'Test-Driven Development', 'Continuous Integration', 'Continuous Deployment', 'Software Architecture']}
+          />
         </div>
       </div>
     </div>
