@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaJava, FaChartBar, FaDatabase, FaCubes } from 'react-icons/fa';
 import {
-  SiPython, SiGo, SiCplusplus, SiJavascript, SiTypescript,
+  SiPython, SiGo, SiC, SiJavascript, SiTypescript,
   SiSwift, SiKotlin, SiRust, SiSpringboot, SiNodedotjs, SiReact,
   SiDotnet, SiPandas, SiNumpy, SiAmazonwebservices, SiGooglecloud,
   SiDocker, SiKubernetes, SiApachekafka, SiGit, SiJenkins, SiGithubactions,
@@ -20,7 +20,7 @@ const skillIcons = {
   Java: <FaJava className="text-[#007396]" />,
   Python: <SiPython className="text-[#3776AB]" />,
   Go: <SiGo className="text-[#00ADD8]" />,
-  C: <SiCplusplus className="text-[#00599C]" />,
+  C: <SiC className="text-[#A8B9CC]" />,
   'C#': <TbBrandCSharp className="text-[#239120]" />,
   JavaScript: <SiJavascript className="text-[#F7DF1E]" />,
   TypeScript: <SiTypescript className="text-[#3178C6]" />,
@@ -31,9 +31,9 @@ const skillIcons = {
   'Spring Boot': <SiSpringboot className="text-[#6DB33F]" />,
   'Node.js': <SiNodedotjs className="text-[#339933]" />,
   React: <SiReact className="text-[#61DAFB]" />,
-  '.NET': <SiDotnet className="text-[#512BD4]" />,
-  Pandas: <SiPandas className="text-[#150458]" />,
-  NumPy: <SiNumpy className="text-[#013243]" />,
+  '.NET': <SiDotnet className="text-[#6885E1]" />,
+  Pandas: <SiPandas className="text-white" />,
+  NumPy: <SiNumpy className="text-[#4DABCF]" />,
 
   'Amazon Web Services': <SiAmazonwebservices className="text-[#FF9900]" />,
   'Google Cloud Platform': <SiGooglecloud className="text-[#4285F4]" />,
@@ -53,8 +53,8 @@ const skillIcons = {
   'REST APIs': <TbApi className="text-[#009688]" />,
   'Microservices': <FaCubes className="text-[#607D8B]" />,
 
-  Agile: <TbRefresh className="text-[#4CAF50]" />,
-  Scrum: <SiScrumalliance className="text-[#512D6D]" />,
+  Agile: <TbRefresh className="text-[#81C784]" />,
+  Scrum: <SiScrumalliance className="text-[#F5F5F5]" />,
   'Test-Driven Development': <TbTestPipe className="text-[#FF9800]" />,
   'Continuous Integration': <TbInfinity className="text-[#2196F3]" />,
   'Continuous Deployment': <TbInfinity className="text-[#00BCD4]" />,
