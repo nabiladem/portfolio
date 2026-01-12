@@ -27,12 +27,14 @@ const skillIcons = {
   Swift: <SiSwift className="text-[#F05138]" />,
   Kotlin: <SiKotlin className="text-[#7F52FF]" />,
   Rust: <SiRust className="text-white" />,
+
   'Spring Boot': <SiSpringboot className="text-[#6DB33F]" />,
   'Node.js': <SiNodedotjs className="text-[#339933]" />,
   React: <SiReact className="text-[#61DAFB]" />,
   '.NET': <SiDotnet className="text-[#512BD4]" />,
   Pandas: <SiPandas className="text-[#150458]" />,
   NumPy: <SiNumpy className="text-[#013243]" />,
+
   'Amazon Web Services': <SiAmazonwebservices className="text-[#FF9900]" />,
   'Google Cloud Platform': <SiGooglecloud className="text-[#4285F4]" />,
   Docker: <SiDocker className="text-[#2496ED]" />,
@@ -50,6 +52,7 @@ const skillIcons = {
   H2: <FaDatabase className="text-[#0079c1]" />,
   'REST APIs': <TbApi className="text-[#009688]" />,
   'Microservices': <FaCubes className="text-[#607D8B]" />,
+
   Agile: <TbRefresh className="text-[#4CAF50]" />,
   Scrum: <SiScrumalliance className="text-[#512D6D]" />,
   'Test-Driven Development': <TbTestPipe className="text-[#FF9800]" />,
@@ -65,8 +68,8 @@ function App() {
   };
 
   const SkillSection = ({ title, skills }) => (
-    <div className="flex flex-col gap-3 text-slate-200">
-      <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">{title}</h3>
+    <div className="flex flex-col gap-3 text-slate-200 border-l border-slate-800 pl-4">
+      <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mt-1">{title}</h3>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
           <span key={skill} className="flex items-center gap-2 liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
@@ -81,8 +84,8 @@ function App() {
   );
 
   return (
-    <div className="flex flex-col items-start justify-center min-h-screen py-20 px-12 bg-slate-950">
-      <div className="flex flex-col md:flex-row items-center gap-12">
+    <div className="flex flex-col items-center justify-center min-h-screen py-10 md:py-20 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-12 lg:gap-20 xl:gap-32 max-w-[1400px] w-full mx-auto">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
