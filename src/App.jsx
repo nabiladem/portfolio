@@ -72,7 +72,7 @@ function App() {
       <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mt-1">{title}</h3>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <span key={skill} className="flex items-center gap-2 liquid-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+          <span key={skill} className="flex items-center gap-2 pill-glass rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
             {skillIcons[skill] && (
               <span className="text-lg">{skillIcons[skill]}</span>
             )}
