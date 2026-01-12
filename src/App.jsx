@@ -84,8 +84,8 @@ function App() {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-10 md:py-20 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-12 lg:gap-20 xl:gap-32 max-w-[1400px] w-full mx-auto">
+    <div className="flex flex-col items-center justify-center h-screen py-6 md:py-10 overflow-hidden px-6 md:px-12 bg-slate-950 overflow-x-hidden">
+      <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-32 max-w-[1400px] w-full mx-auto">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
