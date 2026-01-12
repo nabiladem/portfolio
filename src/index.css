@@ -31,4 +31,5 @@
 @theme {
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
     --font-brand: "Outfit", sans-serif;
+    --breakpoint-monitor: 1800px;
 }

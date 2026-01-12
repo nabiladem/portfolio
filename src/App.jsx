@@ -85,12 +85,12 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen py-6 md:py-10 overflow-hidden px-6 md:px-12 bg-slate-950 overflow-x-hidden">
-      <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-32 max-w-[1400px] w-full mx-auto">
+      <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-24 monitor:gap-32 max-w-[1400px] monitor:max-w-[1800px] w-full mx-auto">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           whileHover="hovered"
-          className="text-left space-y-6 p-8 w-full max-w-2xl liquid-glass relative overflow-hidden"
+          className="text-left space-y-6 p-8 w-full max-w-2xl monitor:max-w-3xl liquid-glass relative overflow-hidden"
         >
           <motion.img
             src="/images/headshot.jpg"
@@ -154,35 +154,37 @@ function App() {
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl font-bold text-slate-100">My Skills</h2>
 
-          <SkillSection
-            title="Programming Languages"
-            skills={['Java', 'Python', 'Go', 'C', 'C#', 'JavaScript', 'TypeScript', 'Swift', 'Kotlin', 'Rust']}
-          />
+          <div className="grid grid-cols-1 monitor:grid-cols-2 gap-x-16 gap-y-8 monitor:gap-y-32">
+            <SkillSection
+              title="Programming Languages"
+              skills={['Java', 'Python', 'Go', 'C', 'C#', 'JavaScript', 'TypeScript', 'Swift', 'Kotlin', 'Rust']}
+            />
 
-          <SkillSection
-            title="Frameworks & Libraries"
-            skills={['Spring Boot', 'Node.js', 'React', '.NET', 'Pandas', 'NumPy']}
-          />
+            <SkillSection
+              title="Frameworks & Libraries"
+              skills={['Spring Boot', 'Node.js', 'React', '.NET', 'Pandas', 'NumPy']}
+            />
 
-          <SkillSection
-            title="Cloud & DevOps"
-            skills={['Amazon Web Services', 'Google Cloud Platform', 'Docker', 'Kubernetes', 'Kafka', 'Git', 'Jenkins', 'GitHub Actions', 'REST APIs', 'Microservices']}
-          />
+            <SkillSection
+              title="Cloud & DevOps"
+              skills={['Amazon Web Services', 'Google Cloud Platform', 'Docker', 'Kubernetes', 'Kafka', 'Git', 'Jenkins', 'GitHub Actions', 'REST APIs', 'Microservices']}
+            />
 
-          <SkillSection
-            title="Data & Databases"
-            skills={['SQL', 'PostgreSQL', 'MongoDB', 'DynamoDB', 'H2']}
-          />
+            <SkillSection
+              title="Data & Databases"
+              skills={['SQL', 'PostgreSQL', 'MongoDB', 'DynamoDB', 'H2']}
+            />
 
-          <SkillSection
-            title="Analytics & Reporting"
-            skills={['Power BI', 'JupyterHub']}
-          />
+            <SkillSection
+              title="Analytics & Reporting"
+              skills={['Power BI', 'JupyterHub']}
+            />
 
-          <SkillSection
-            title="Methodologies"
-            skills={['Agile', 'Scrum', 'Test-Driven Development', 'Continuous Integration', 'Continuous Deployment', 'Software Architecture']}
-          />
+            <SkillSection
+              title="Methodologies"
+              skills={['Agile', 'Scrum', 'Test-Driven Development', 'Continuous Integration', 'Continuous Deployment', 'Software Architecture']}
+            />
+          </div>
         </div>
       </div>
     </div>
