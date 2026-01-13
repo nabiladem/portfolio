@@ -86,8 +86,8 @@ function App() {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen py-6 md:py-10 overflow-hidden px-6 md:px-12 bg-slate-950 overflow-x-hidden">
-      <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-24 monitor:gap-32 max-w-[1400px] monitor:max-w-[1800px] w-full mx-auto">
+    <div className="flex flex-col items-center justify-start md:justify-center min-h-screen py-8 md:py-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
+      <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-24 monitor:gap-32 max-w-[1400px] monitor:max-w-[1800px] w-full mx-auto py-4 md:py-0">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ function App() {
           <motion.img
             src="/images/headshot.jpg"
             alt="Nabil Adem"
-            className="w-48 h-48 rounded-full object-cover mx-auto"
+            className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto shadow-xl"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -114,8 +114,8 @@ function App() {
           <h2 className="text-2xl font-semibold text-slate-300 text-center">Software Developer</h2>
 
           <div>
-            <p className="text-xl text-slate-500 text-center">
-              <span className="block text-3xl text-center">👋🏾🌍</span>
+            <p className="text-base md:text-xl text-slate-500 text-center leading-relaxed">
+              <span className="block text-2xl md:text-3xl text-center mb-2">👋🏾🌍</span>
               I am passionate about creating innovative solutions to real-world challenges.
               I enjoy building user-focused applications, learning new technologies, collaborating with others,
               and strengthening my skills through hands-on projects.
@@ -125,10 +125,10 @@ function App() {
             </p>
           </div>
 
-          <div className="flex items-center justify-center gap-5 mt-6 text-sm text-slate-400 liquid-glass p-4 px-10 w-fit mx-auto">
-            <span>📍 Based in Phoenix, AZ & Nashville, TN</span>
-            <span className="text-slate-600">|</span>
-            <span className="text-slate-200 font-medium">Open to relocation</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mt-6 text-sm text-slate-400 liquid-glass p-4 px-6 md:px-10 w-full sm:w-fit mx-auto">
+            <span>📍 Phoenix, AZ & Nashville, TN</span>
+            <span className="hidden sm:inline text-slate-600">|</span>
+            <span className="text-slate-200 font-medium text-center">Open to relocation</span>
           </div>
 
           <motion.div
