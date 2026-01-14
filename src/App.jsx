@@ -61,6 +61,21 @@ const skillIcons = {
   'Software Architecture': <TbHierarchy className="text-[#9C27B0]" />,
 };
 
+const projects = [
+  {
+    title: "Raft",
+    description: "Distributed Consensus Algorithm",
+    image: "https://via.placeholder.com/150",
+    link: "https://github.com/nabiladem/raft"
+  },
+  {
+    title: "nabiladem.com",
+    description: "This website",
+    image: "https://via.placeholder.com/150",
+    link: "https://portfolio-gilt-two-36.vercel.app"
+  },
+];
+
 function App() {
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, y: 10 },
@@ -189,6 +204,24 @@ function App() {
           </div>
         </div>
       </div>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4"
+      >
+        <div className="flex items-center gap-4 mb-12">
+          <h2 className="text-3xl font-bold text-slate-100">My Projects</h2>
+          <div className="h-[1px] flex-grow bg-slate-800"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* {projects.map((progrect, i) => (
+
+          ))} */}
+        </div>
+      </motion.section>
     </div>
   );
 }
