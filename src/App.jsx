@@ -64,14 +64,16 @@ const skillIcons = {
 const projects = [
   {
     title: "Raft",
-    description: "Distributed Consensus Algorithm",
-    image: "https://via.placeholder.com/150",
-    link: "https://github.com/nabiladem/raft"
+    description: "Distributed Consensus Algorithm implementation in Go.",
+    tech: ["Go", "Distributed Systems"],
+    github: "https://github.com/nabiladem/raft",
+    link: null
   },
   {
     title: "nabiladem.com",
-    description: "This website",
-    image: "https://via.placeholder.com/150",
+    description: "My personal portfolio website built with React and Framer Motion.",
+    tech: ["React", "JavaScript", "Tailwind CSS"],
+    github: "https://github.com/nabiladem/portfolio",
     link: "https://portfolio-gilt-two-36.vercel.app"
   },
 ];
@@ -217,9 +219,53 @@ function App() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* {projects.map((progrect, i) => (
+          {projects.map((project, i) =>
+          (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 50 }}
+              whileHover={{ y: -10 }}
+              className="liquid-glass p-8 flex flex-col gap-6 group transition-all duration-300"
+            >
+              <div className="space-y-3">
+                <h3 className="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-slate-400 leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
 
-          ))} */}
+              <div className="flex flex-wrap gap-2">
+                {project.tech?.map((t) => (
+                  <span key={t} className="text-xs font-medium px-3 py-1 rounded-full bg-slate-800/50 text-slate-300 border border-slate-700/50">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-6 mt-auto pt-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm"
+                >
+                  <FaGithub className="text-xl" /> Code
+                </a>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm"
+                  >
+                    <TbRefresh className="text-xl" /> Live Demo
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </motion.section>
     </div>
