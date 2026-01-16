@@ -10,6 +10,8 @@ import {
   SiMysql, SiScrumalliance
 } from 'react-icons/si';
 import { TbBrandCSharp, TbApi, TbRefresh, TbTestPipe, TbInfinity, TbHierarchy } from 'react-icons/tb';
+import Lenis from '@studio-freight/lenis'
+import { useEffect } from 'react'
 
 const socialIcons = [
   { icon: <FaGithub />, link: "https://github.com/nabiladem" },
@@ -71,7 +73,7 @@ const projects = [
   },
   {
     title: "nabiladem.com",
-    description: "My personal portfolio website built with React and Framer Motion.",
+    description: "This website.",
     tech: ["React", "JavaScript", "Tailwind CSS"],
     github: "https://github.com/nabiladem/portfolio",
     link: "https://portfolio-gilt-two-36.vercel.app"
@@ -101,6 +103,19 @@ function App() {
       </div>
     </div>
   );
+
+  useEffect(() => {
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => lenis.destroy()
+  }, [])
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen py-8 md:py-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
