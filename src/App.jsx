@@ -66,7 +66,7 @@ const projects = [
     title: "Raft",
     description: "Distributed Consensus Algorithm implementation in Go.",
     tech: ["Go", "Distributed Systems"],
-    github: "https://github.com/nabiladem/raft",
+    github: "https://github.com/nabiladem",
     link: null
   },
   {
@@ -103,7 +103,7 @@ function App() {
   );
 
   return (
-    <div className="flex flex-col items-center justify-start md:justify-center min-h-screen py-8 md:py-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
+    <div className="flex flex-col items-center justify-start min-h-screen py-8 md:py-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
       <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-24 monitor:gap-32 max-w-[1400px] monitor:max-w-[1800px] w-full mx-auto py-4 md:py-0">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
@@ -211,7 +211,7 @@ function App() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4"
+        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20"
       >
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-100">My Projects</h2>
@@ -224,6 +224,9 @@ function App() {
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10 }}
               className="liquid-glass p-8 flex flex-col gap-6 group transition-all duration-300"
             >
