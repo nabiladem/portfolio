@@ -105,7 +105,11 @@ function App() {
   );
 
   useEffect(() => {
-    const lenis = new Lenis()
+    const lenis = new Lenis({
+      lerp: 0.15,
+      duration: 1.2,
+      wheelMultiplier: 1,
+    })
 
     function raf(time) {
       lenis.raf(time)
