@@ -229,6 +229,17 @@ function App() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 0.8,
+              ease: "easeOut"
+            }
+          }
+        }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20"
       >
@@ -242,10 +253,10 @@ function App() {
           (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
               whileHover={{ y: -10 }}
               className="liquid-glass p-8 flex flex-col gap-6 group transition-all duration-300"
             >
