@@ -67,7 +67,7 @@ const projects = [
   {
     title: "Raft",
     description: "Distributed Consensus Algorithm implementation in Go.",
-    tech: ["Go", "Distributed Systems"],
+    tech: ["Go"],
     github: "https://github.com/nabiladem",
     link: null
   },
@@ -93,6 +93,23 @@ function App() {
     visible: { opacity: 1, scale: 1, y: 0 }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   const SkillSection = ({ title, skills }) => (
     <div className="flex flex-col gap-3 text-slate-200">
       <div className="border-l border-slate-800 pl-4 py-1 h-fit">
@@ -110,7 +127,7 @@ function App() {
       </div>
     </div>
   );
-
+  
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.15,
@@ -234,21 +251,10 @@ function App() {
       </div>
 
       <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={{
-          hidden: { opacity: 0, y: 30 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              duration: 0.8,
-              ease: "easeOut"
-            }
-          }
-        }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20"
       >
         <div className="flex items-center gap-4 mb-12">
@@ -261,16 +267,19 @@ function App() {
           (
             <motion.div
               key={i}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 }
-              }}
+              variants={cardVariants}
               whileHover={{ y: -10 }}
-              className="liquid-glass p-8 flex flex-col gap-6 group transition-all duration-300"
+              className="liquid-glass p-8 flex flex-col gap-6 group"
             >
               <div className="space-y-3">
                 <h3 className="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
-                  {project.title}
+                  {project.link ? (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline decoration-blue-400/30 underline-offset-8">
+                      {project.title}
+                    </a>
+                  ) : (
+                    project.title
+                  )}
                 </h3>
                 <p className="text-slate-400 leading-relaxed">
                   {project.description}
@@ -292,25 +301,15 @@ function App() {
                 ))}
               </div>
 
-              <div className="flex items-center gap-6 pt-4">
+              <div className="flex items-center gap-6 pt-4 border-white/5 mt-auto">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm"
+                  className="text-slate-500 hover:text-white transition-all duration-300 flex items-center gap-2 text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
                 >
-                  <FaGithub className="text-xl" /> Code
+                  <FaGithub className="text-xl" /> Source Code
                 </a>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm"
-                  >
-                    <TbRefresh className="text-xl" /> Live Demo
-                  </a>
-                )}
               </div>
             </motion.div>
           ))}
