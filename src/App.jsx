@@ -281,7 +281,12 @@ function App() {
 
               <div className="flex flex-wrap gap-2">
                 {project.tech?.map((t) => (
-                  <span key={t} className="text-xs font-medium px-3 py-1 rounded-full bg-slate-800/50 text-slate-300 border border-slate-700/50">
+                  <span key={t} className="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                    {skillIcons[t] && (
+                      <span className="text-lg">
+                        {skillIcons[t]}
+                      </span>
+                    )}
                     {t}
                   </span>
                 ))}
