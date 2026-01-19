@@ -232,6 +232,7 @@ function App() {
           </div>
         </div>
       </div>
+
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -255,7 +256,7 @@ function App() {
           <div className="h-[1px] flex-grow bg-slate-800"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, i) =>
           (
             <motion.div
@@ -276,6 +277,8 @@ function App() {
                 </p>
               </div>
 
+              <div className="flex-grow"></div>
+
               <div className="flex flex-wrap gap-2">
                 {project.tech?.map((t) => (
                   <span key={t} className="text-xs font-medium px-3 py-1 rounded-full bg-slate-800/50 text-slate-300 border border-slate-700/50">
@@ -284,7 +287,7 @@ function App() {
                 ))}
               </div>
 
-              <div className="flex items-center gap-6 mt-auto pt-4">
+              <div className="flex items-center gap-6 pt-4">
                 <a
                   href={project.github}
                   target="_blank"
