@@ -72,6 +72,13 @@ const projects = [
     link: null
   },
   {
+    title: "Git Fit",
+    description: "CLI tool and web app to compress your GitHub avatars under the 1MB limit.",
+    tech: ["Go", "React", "JavaScript", "Tailwind CSS"],
+    github: "https://github.com/nabiladem/git-fit",
+    link: "https://git-fit-flax.vercel.app"
+  },
+  {
     title: "nabiladem.com",
     description: "This website.",
     tech: ["React", "JavaScript", "Tailwind CSS"],
