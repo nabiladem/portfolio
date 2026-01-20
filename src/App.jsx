@@ -7,7 +7,7 @@ import {
   SiDotnet, SiPandas, SiNumpy, SiAmazonwebservices, SiGooglecloud,
   SiDocker, SiKubernetes, SiApachekafka, SiGit, SiJenkins, SiGithubactions,
   SiPostgresql, SiMongodb, SiAmazondynamodb, SiJupyter,
-  SiMysql, SiScrumalliance
+  SiMysql, SiScrumalliance, SiTailwindcss
 } from 'react-icons/si';
 import { TbBrandCSharp, TbApi, TbRefresh, TbTestPipe, TbInfinity, TbHierarchy } from 'react-icons/tb';
 import Lenis from '@studio-freight/lenis'
@@ -36,6 +36,7 @@ const skillIcons = {
   '.NET': <SiDotnet className="text-[#6885E1]" />,
   Pandas: <SiPandas className="text-white" />,
   NumPy: <SiNumpy className="text-[#4DABCF]" />,
+  'Tailwind CSS': <SiTailwindcss className="text-[#06B6D4]" />,
 
   'Amazon Web Services': <SiAmazonwebservices className="text-[#FF9900]" />,
   'Google Cloud Platform': <SiGooglecloud className="text-[#4285F4]" />,
@@ -224,7 +225,7 @@ function App() {
 
             <SkillSection
               title="Frameworks & Libraries"
-              skills={['Spring Boot', 'Node.js', 'React', '.NET', 'Pandas', 'NumPy']}
+              skills={['Spring Boot', 'Node.js', 'React', '.NET', 'Pandas', 'NumPy', 'Tailwind CSS']}
             />
 
             <SkillSection
