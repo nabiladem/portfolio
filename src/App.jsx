@@ -88,6 +88,16 @@ const projects = [
   },
 ];
 
+const experiences = [
+  {
+    company: "Capgemini",
+    role: "Software Developer",
+    period: "January 2024 - June 2025",
+    description: "",
+    tech: ["Java", "Spring Boot", "Kafka"],
+  },
+]
+
 function App() {
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, y: 10 },
@@ -128,7 +138,7 @@ function App() {
       </div>
     </div>
   );
-  
+
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.15,
@@ -316,6 +326,20 @@ function App() {
           ))}
         </div>
       </motion.section>
+
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20"
+        >
+          <div className="flex items-center gap-4 mb-12">
+            <h2 className="text-3xl font-bold text-slate-100">My Experiences</h2>
+            <div className="h-[1px] flex-grow bg-slate-800"></div>
+          </div>
+          
+        </motion.section>
     </div>
   );
 }
