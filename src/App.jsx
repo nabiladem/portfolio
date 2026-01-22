@@ -96,6 +96,27 @@ const experiences = [
     description: "",
     tech: ["Java", "Spring Boot", "Kafka"],
   },
+  {
+    company: "FedEx",
+    role: "IT Analyst Intern",
+    period: "January 2023 - April 2023",
+    description: "",
+    tech: ["Java", "Power BI"],
+  },
+  {
+    company: "University of North Carolina at Chapel Hill & Intel",
+    role: "Undergraduate Security Research Assistant",
+    period: "July 2022 - July 2022",
+    description: "",
+    tech: ["Rust", "JavaScript"],
+  },
+  {
+    company: "Rhodes College",
+    role: "Computer Science Tutor",
+    period: "August 2021 - May 2023",
+    description: "",
+    tech: ["Python", "Java", "C"],
+  },
 ]
 
 function App() {
@@ -333,13 +354,14 @@ function App() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20"
-        >
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold text-slate-100">My Experiences</h2>
-            <div className="h-[1px] flex-grow bg-slate-800"></div>
-          </div>
-          
-        </motion.section>
+      >
+        <div className="flex items-center gap-4 mb-12">
+          <h2 className="text-3xl font-bold text-slate-100">My Experiences</h2>
+          <div className="h-[1px] flex-grow bg-slate-800"></div>
+        </div>
+
+        <div className="relative border-l border-slate-800 ml-4 pl-8 space-y-12"></div>
+      </motion.section>
     </div>
   );
 }
