@@ -360,7 +360,17 @@ function App() {
           <div className="h-[1px] flex-grow bg-slate-800"></div>
         </div>
 
-        <div className="relative border-l border-slate-800 ml-4 pl-8 space-y-12"></div>
+        <div className="relative border-l border-slate-800 ml-4 pl-8 space-y-12">
+          {experiences.map((experience, i) => (
+            <motion.div
+              key={i}
+              variants={cardVariants}
+              className="relative"
+            >
+              
+            </motion.div>
+          ))}
+        </div>
       </motion.section>
     </div>
   );
