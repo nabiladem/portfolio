@@ -160,6 +160,15 @@ function App() {
     </div>
   );
 
+  const TechBadge = ({ tech }) => (
+    <span className="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+      {skillIcons[tech] && (
+        <span className="text-lg">{skillIcons[tech]}</span>
+      )}
+      {tech}
+    </span>
+  );
+
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.15,
@@ -322,14 +331,7 @@ function App() {
 
               <div className="flex flex-wrap gap-2">
                 {project.stack?.map((s) => (
-                  <span key={s} className="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                    {skillIcons[s] && (
-                      <span className="text-lg">
-                        {skillIcons[s]}
-                      </span>
-                    )}
-                    {s}
-                  </span>
+                  <TechBadge key={s} tech={s} />
                 ))}
               </div>
 
@@ -385,14 +387,7 @@ function App() {
 
                 <div className="flex flex-wrap gap-2">
                   {experience.stack?.map((s) => (
-                    <span key={s} className="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                    {skillIcons[s] && (
-                      <span className="text-lg">
-                        {skillIcons[s]}
-                      </span>
-                    )}
-                    {s}
-                  </span>
+                    <TechBadge key={s} tech={s} />
                   ))}
                 </div>
               </div>
