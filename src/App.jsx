@@ -68,21 +68,21 @@ const projects = [
   {
     title: "Raft",
     description: "Distributed Consensus Algorithm implementation in Go.",
-    tech: ["Go"],
+    stack: ["Go"],
     github: "https://github.com/nabiladem",
     link: null
   },
   {
     title: "Git Fit",
     description: "CLI tool and web app to compress your GitHub avatars under the 1MB limit.",
-    tech: ["Go", "React", "JavaScript", "Tailwind CSS"],
+    stack: ["Go", "React", "JavaScript", "Tailwind CSS"],
     github: "https://github.com/nabiladem/git-fit",
     link: "https://git-fit-flax.vercel.app"
   },
   {
     title: "nabiladem.com",
     description: "This website.",
-    tech: ["React", "JavaScript", "Tailwind CSS"],
+    stack: ["React", "JavaScript", "Tailwind CSS"],
     github: "https://github.com/nabiladem/portfolio",
     link: "https://portfolio-gilt-two-36.vercel.app"
   },
@@ -94,28 +94,28 @@ const experiences = [
     role: "Software Developer",
     period: "January 2024 - June 2025",
     description: "",
-    tech: ["Java", "Spring Boot", "Kafka"],
+    stack: ["Java", "Spring Boot", "Kafka"],
   },
   {
     company: "FedEx",
     role: "IT Analyst Intern",
     period: "January 2023 - April 2023",
     description: "",
-    tech: ["Java", "Power BI"],
+    stack: ["Java", "Power BI"],
   },
   {
     company: "University of North Carolina at Chapel Hill & Intel",
     role: "Undergraduate Security Research Assistant",
     period: "July 2022 - July 2022",
     description: "",
-    tech: ["Rust", "JavaScript"],
+    stack: ["Rust", "JavaScript"],
   },
   {
     company: "Rhodes College",
     role: "Computer Science Tutor",
     period: "August 2021 - May 2023",
     description: "",
-    tech: ["Python", "Java", "C"],
+    stack: ["Python", "Java", "C"],
   },
 ]
 
@@ -321,14 +321,14 @@ function App() {
               <div className="flex-grow"></div>
 
               <div className="flex flex-wrap gap-2">
-                {project.tech?.map((t) => (
-                  <span key={t} className="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
-                    {skillIcons[t] && (
+                {project.stack?.map((s) => (
+                  <span key={s} className="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                    {skillIcons[s] && (
                       <span className="text-lg">
-                        {skillIcons[t]}
+                        {skillIcons[s]}
                       </span>
                     )}
-                    {t}
+                    {s}
                   </span>
                 ))}
               </div>
@@ -367,7 +367,35 @@ function App() {
               variants={cardVariants}
               className="relative"
             >
-              
+              <div className="absolute -left-[41px] top-4 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(59, 130, 246, 0.5)]"></div>
+              <div className="liquid-glass p-8 flex flex-col gap-4 group">
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
+                    {experience.role}
+                  </h3>
+                  <p className="text-blue-400 font-medium text-lg">
+                    {experience.company}
+                  </p>
+                </div>
+                <div className="w-fit text-slate-500 font-medium bg-slate-900/50 px-4 py-1 rounded-full border border-slate-800 text-sm">{experience.period}</div>
+
+                <p className="text-slate-400 leading-relaxed max-w-4xl">
+                  {experience.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {experience.stack?.map((s) => (
+                    <span key={s} className="flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] rounded-full px-4 py-1.5 text-sm text-slate-100 whitespace-nowrap">
+                    {skillIcons[s] && (
+                      <span className="text-lg">
+                        {skillIcons[s]}
+                      </span>
+                    )}
+                    {s}
+                  </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
