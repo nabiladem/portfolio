@@ -121,7 +121,6 @@ const experiences = [
     school: "Rhodes College",
     degree: "Bachelor of Science in Computer Science",
     period: "August 2019 - May 2023",
-    description: "",
   }
 ]
 
@@ -368,21 +367,21 @@ function App() {
           <div className="h-[1px] flex-grow bg-slate-800"></div>
         </div>
 
-        <div className="relative border-l border-slate-800 ml-4 pl-8 space-y-12">
+        <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-800">
           {experiences.map((experience, i) => (
             <motion.div
               key={i}
               variants={cardVariants}
-              className="relative"
+              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
             >
-              <div className="absolute -left-[41px] top-4 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(59, 130, 246, 0.5)]"></div>
-              <div className="liquid-glass p-8 flex flex-col gap-4 group">
+              <div className="flex items-center justify-center w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(59,130,246,0.5)] z-10 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 ml-[12px] md:ml-0"></div>
+              <div className="liquid-glass p-8 flex flex-col gap-4 group w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)]">
                 <div>
                   <h3 className="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
-                    {experience.role}
+                    {experience.role || experience.degree}
                   </h3>
                   <p className="text-blue-400 font-medium text-lg">
-                    {experience.company}
+                    {experience.company || experience.school}
                   </p>
                 </div>
                 <div className="w-fit text-slate-500 font-medium bg-slate-900/50 px-4 py-1 rounded-full border border-slate-800 text-sm">{experience.period}</div>
