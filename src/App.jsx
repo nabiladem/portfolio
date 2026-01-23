@@ -117,6 +117,12 @@ const experiences = [
     description: "",
     stack: ["Python", "Java", "C"],
   },
+  {
+    school: "Rhodes College",
+    degree: "Bachelor of Science in Computer Science",
+    period: "August 2019 - May 2023",
+    description: "",
+  }
 ]
 
 function App() {
