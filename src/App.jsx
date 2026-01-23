@@ -121,6 +121,7 @@ const experiences = [
     school: "Rhodes College",
     degree: "Bachelor of Science in Computer Science",
     period: "August 2019 - May 2023",
+    honors: ["cum laude", "Upsilon Pi Epsilon"]
   }
 ]
 
@@ -391,7 +392,7 @@ function App() {
                 </p>
 
                 <div className="flex flex-wrap gap-2">
-                  {experience.stack?.map((s) => (
+                  {(experience.stack || experience.honors)?.map((s) => (
                     <TechBadge key={s} tech={s} />
                   ))}
                 </div>
