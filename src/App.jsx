@@ -369,36 +369,58 @@ function App() {
         </div>
 
         <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-800">
-          {experiences.map((experience, i) => (
-            <motion.div
-              key={i}
-              variants={cardVariants}
-              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            >
-              <div className="flex items-center justify-center w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(59,130,246,0.5)] z-10 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 ml-[12px] md:ml-0"></div>
-              <div className="liquid-glass p-8 flex flex-col gap-4 group w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)]">
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
-                    {experience.role || experience.degree}
-                  </h3>
-                  <p className="text-blue-400 font-medium text-lg">
-                    {experience.company || experience.school}
-                  </p>
-                </div>
-                <div className="w-fit text-slate-500 font-medium bg-slate-900/50 px-4 py-1 rounded-full border border-slate-800 text-sm">{experience.period}</div>
+          {experiences.map((experience, i) => {
+            const currYear = experience.period.match(/\d{4}/)?.[0];
+            const nextYear = i < experiences.length - 1 ? experiences[i + 1].period.match(/\d{4}/)?.[0] : null;
+            const isYearEnding = currYear !== nextYear;
 
-                <p className="text-slate-400 leading-relaxed max-w-4xl">
-                  {experience.description}
-                </p>
+            return (
+              <React.Fragment key={i}>
+                <motion.div
+                  variants={cardVariants}
+                  className={`relative flex items-center justify-between md:justify-normal ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''} group pb-12`}
+                >
+                  <div className={`flex items-center justify-center w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(59,130,246,0.5)] z-10 md:order-1 ${i % 2 !== 0 ? 'md:-translate-x-1/2' : 'md:translate-x-1/2'} ml-[12px] md:ml-0`}></div>
+                  <div className="liquid-glass p-8 flex flex-col gap-4 group w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)]">
+                    <div>
+                      <h3 className="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
+                        {experience.role || experience.degree}
+                      </h3>
+                      <p className="text-blue-400 font-medium text-lg">
+                        {experience.company || experience.school}
+                      </p>
+                    </div>
+                    <div className="w-fit text-slate-500 font-medium bg-slate-900/50 px-4 py-1 rounded-full border border-slate-800 text-sm">{experience.period}</div>
 
-                <div className="flex flex-wrap gap-2">
-                  {(experience.stack || experience.honors)?.map((s) => (
-                    <TechBadge key={s} tech={s} />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                    <p className="text-slate-400 leading-relaxed max-w-4xl">
+                      {experience.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {(experience.stack || experience.honors)?.map((s) => (
+                        <TechBadge key={s} tech={s} />
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+
+                {isYearEnding && (
+                  <div className="w-full relative flex items-center justify-center py-12">
+                    <div className="absolute left-5 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="z-10 bg-slate-950 px-4 text-xs font-bold text-slate-500 tracking-[0.4em] uppercase whitespace-nowrap mr-[-0.4em]"
+                      >
+                        {currYear}
+                      </motion.span>
+                    </div>
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
         </div>
       </motion.section>
     </div>
