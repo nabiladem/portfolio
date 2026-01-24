@@ -122,7 +122,7 @@ const experiences = [
     degree: "Bachelor of Science in Computer Science",
     period: "August 2019 - May 2023",
     honors: ["cum laude", "Upsilon Pi Epsilon"]
-  }
+  },
 ]
 
 function App() {
