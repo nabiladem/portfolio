@@ -369,6 +369,20 @@ function App() {
         </div>
 
         <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-800">
+          <div className="w-full relative flex items-center justify-center py-12">
+            <div className="absolute left-5 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="z-10 bg-slate-950 px-4 flex gap-2 items-center"
+              >
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+              </motion.div>
+            </div>
+          </div>
           {experiences.map((experience, i) => {
             const currYear = experience.period.match(/\d{4}/)?.[0];
             const nextYear = i < experiences.length - 1 ? experiences[i + 1].period.match(/\d{4}/)?.[0] : null;
