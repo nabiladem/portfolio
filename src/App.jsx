@@ -371,16 +371,24 @@ function App() {
         <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-800">
           <div className="w-full relative flex items-center justify-center py-12">
             <div className="absolute left-5 md:left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="z-10 bg-slate-950 px-4 flex gap-2 items-center"
-              >
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-              </motion.div>
+              <div className="z-10 bg-slate-950 px-4 flex gap-2 items-center">
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      opacity: [0.3, 1, 0.3],
+                      scale: [1, 1.2, 1]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: i * 0.4,
+                      ease: "easeInOut"
+                    }}
+                    className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]"
+                  />
+                ))}
+              </div>
               <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
