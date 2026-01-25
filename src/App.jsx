@@ -370,7 +370,7 @@ function App() {
 
         <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-800">
           <div className="w-full relative flex items-center justify-center py-12">
-            <div className="absolute left-5 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <div className="absolute left-5 md:left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -381,6 +381,14 @@ function App() {
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
               </motion.div>
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="z-10 bg-slate-950 px-4 text-xs font-bold text-slate-500 tracking-[0.4em] uppercase whitespace-nowrap mr-[-0.4em]"
+              >
+                2026
+              </motion.span>
             </div>
           </div>
           {experiences.map((experience, i) => {
