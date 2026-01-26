@@ -401,9 +401,9 @@ function App() {
                       scale: [1, 1.2, 1]
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 4,
                       repeat: Infinity,
-                      delay: i * 0.4,
+                      delay: i * 0.6,
                       ease: "easeInOut"
                     }}
                     className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]"
