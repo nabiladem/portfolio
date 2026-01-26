@@ -84,7 +84,7 @@ const projects = [
     description: "This website.",
     stack: ["React", "JavaScript", "Tailwind CSS"],
     github: "https://github.com/nabiladem/portfolio",
-    link: "https://portfolio-gilt-two-36.vercel.app"
+    link: "https://nabiladem.com"
   },
 ];
 
@@ -93,35 +93,56 @@ const experiences = [
     company: "Capgemini",
     role: "Software Developer",
     period: "January 2024 - June 2025",
-    description: "",
+    description: `• Designed, developed, and deployed enterprise-scale software solutions for Fortune 500 clients, supporting digital transformation and modernization initiatives
+                  • Built and optimized Dialogflow CX conversational AI workflows, improving intent recognition accuracy and reducing customer handoff rate to human agents by 55%
+                  • Enhanced Agile defect triage process by integrating test cases with user stories, cutting defect resolution time by 40% and boosting QA traceability by 60%
+                  • Contributed to API modernization, migrating legacy systems to Spring Boot RESTful microservices, improving response times by 50% and reducing maintenance costs by $120K annually
+                  • Implemented Kafka-based event-driven architecture, enabling real-time data streaming and reducing latency in mission-critical operations by 45%
+                  • Collaborated with cross-functional Agile teams and utilized CI/CD pipelines, Git, and Docker to deliver secure, scalable backend solutions on AWS and GCP`,
     stack: ["Java", "Spring Boot", "Kafka"],
+    color: "sky",
   },
   {
     company: "FedEx",
     role: "IT Analyst Intern",
     period: "January 2023 - April 2023",
-    description: "",
+    description: `• Developed Microsoft Power BI dashboards for Agile release tracking, improving visibility and compliance across 100+ projects, reducing manual reporting time by 95%
+                  • Automated project intake and reporting workflows between Digital.ai Agility and Microfocus PPM, cutting report turnaround time from 48 hours to under 10 minutes
+                  • Enhanced Agile release train forecasting accuracy by 25%, supporting data-driven decision-making for resource allocation and program planning`,
     stack: ["Java", "Power BI"],
+    color: "purple",
   },
   {
     company: "University of North Carolina at Chapel Hill & Intel",
     role: "Undergraduate Security Research Assistant",
     period: "July 2022 - July 2022",
-    description: "",
+    description: `• Researched web security and identity protection, developing OpenJar—a Google Chrome extension (HTML, CSS, JavaScript) for anonymous browsing
+                  • Collaborated with Intel and UNC researchers to present project outcomes on cybersecurity and data privacy`,
     stack: ["Rust", "JavaScript"],
+    color: "sky",
   },
   {
     company: "Rhodes College",
     role: "Computer Science Tutor",
     period: "August 2021 - May 2023",
-    description: "",
+    description: `• Mentored students in data structures, algorithms, and object-oriented programming in Java, Python, and C
+                  • Improved average student performance through one-on-one instruction and code review sessions`,
     stack: ["Python", "Java", "C"],
+    color: "red",
   },
   {
     school: "Rhodes College",
     degree: "Bachelor of Science in Computer Science",
     period: "August 2019 - May 2023",
-    honors: ["cum laude", "Upsilon Pi Epsilon"]
+    description: `• COMP 485: Software Engineering
+                  • COMP 465: Cybersecurity
+                  • COMP 385: Distributed Systems
+                  • COMP 380: Parallel Systems
+                  • COMP 372: Artificial Intelligence
+                  • COMP 355: Advanced Algorithms
+                  • COMP 241: Data Structures & Algorithms`,
+    honors: ["cum laude", "Upsilon Pi Epsilon"],
+    color: "red",
   },
 ]
 
@@ -404,27 +425,65 @@ function App() {
             const nextYear = i < experiences.length - 1 ? experiences[i + 1].period.match(/\d{4}/)?.[0] : null;
             const isYearEnding = currYear !== nextYear;
 
+            const colors = {
+              sky: {
+                bg: "bg-sky-500",
+                text: "text-sky-400",
+                bullet: "bg-sky-400",
+                shadow: "shadow-sky-500/50",
+                bulletShadow: "shadow-sky-400/60"
+              },
+              purple: {
+                bg: "bg-purple-500",
+                text: "text-purple-400",
+                bullet: "bg-purple-400",
+                shadow: "shadow-purple-500/50",
+                bulletShadow: "shadow-purple-400/60"
+              },
+              red: {
+                bg: "bg-red-500",
+                text: "text-red-400",
+                bullet: "bg-red-400",
+                shadow: "shadow-red-500/50",
+                bulletShadow: "shadow-red-400/60"
+              }
+            };
+            const theme = colors[experience.color];
+
             return (
               <React.Fragment key={i}>
                 <motion.div
                   variants={cardVariants}
                   className={`relative flex items-center justify-between md:justify-normal ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''} group pb-12`}
                 >
-                  <div className={`flex items-center justify-center w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(59,130,246,0.5)] z-10 md:order-1 ${i % 2 !== 0 ? 'md:-translate-x-1/2' : 'md:translate-x-1/2'} ml-[12px] md:ml-0`}></div>
+                  <div className={`flex items-center justify-center w-4 h-4 rounded-full ${theme.bg} border-4 border-slate-950 shadow-[0_0_10px] ${theme.shadow} z-10 md:order-1 ${i % 2 !== 0 ? 'md:-translate-x-1/2' : 'md:translate-x-1/2'} ml-[12px] md:ml-0`}></div>
                   <div className="liquid-glass p-8 flex flex-col gap-4 group w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)]">
                     <div>
                       <h3 className="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
                         {experience.role || experience.degree}
                       </h3>
-                      <p className="text-blue-400 font-medium text-lg">
+                      <p className={`${theme.text} font-medium text-lg`}>
                         {experience.company || experience.school}
                       </p>
                     </div>
                     <div className="w-fit text-slate-500 font-medium bg-slate-900/50 px-4 py-1 rounded-full border border-slate-800 text-sm">{experience.period}</div>
 
-                    <p className="text-slate-400 leading-relaxed max-w-4xl">
-                      {experience.description}
-                    </p>
+                    {experience.description && (
+                      <div className={`space-y-3 ${experience.school ? 'grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 space-y-0' : ''}`}>
+                        {experience.description.split('\n').filter(l => l.trim()).map((line, idx) => {
+                          const trimmed = line.trim();
+                          if (trimmed.startsWith('•')) {
+                            return (
+                              <div key={idx} className="flex gap-3 text-slate-400 leading-relaxed text-[15px]">
+                                <span className={`mt-[9px] shrink-0 w-1 h-1 rounded-full ${theme.bullet} shadow-[0_0_10px] ${theme.bulletShadow}`}></span>
+                                <span className="flex-1">{trimmed.replace('•', '').trim()}</span>
+                              </div>
+                            );
+                          }
+                          return <p key={idx} className="text-slate-400 leading-relaxed text-[15px]">{trimmed}</p>;
+                        })}
+                      </div>
+                    )}
 
                     <div className="flex flex-wrap gap-2">
                       {(experience.stack || experience.honors)?.map((s) => (
