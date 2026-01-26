@@ -110,7 +110,7 @@ const experiences = [
                   • Automated project intake and reporting workflows between Digital.ai Agility and Microfocus PPM, cutting report turnaround time from 48 hours to under 10 minutes
                   • Enhanced Agile release train forecasting accuracy by 25%, supporting data-driven decision-making for resource allocation and program planning`,
     stack: ["Java", "Power BI"],
-    color: "purple",
+    color: "orange",
   },
   {
     company: "University of North Carolina at Chapel Hill & Intel",
@@ -429,29 +429,32 @@ function App() {
               sky: {
                 bg: "bg-sky-500",
                 text: "text-sky-400",
+                hover: "group-hover:text-cyan-400",
                 bullet: "bg-sky-400",
                 shadow: "shadow-sky-500/50",
                 bulletShadow: "shadow-sky-400/60"
               },
-              purple: {
-                bg: "bg-purple-500",
-                text: "text-purple-400",
-                bullet: "bg-purple-400",
-                shadow: "shadow-purple-500/50",
-                bulletShadow: "shadow-purple-400/60"
+              orange: {
+                bg: "bg-orange-500",
+                text: "text-orange-500",
+                hover: "group-hover:text-purple-400",
+                bullet: "bg-orange-400",
+                shadow: "shadow-orange-500/50",
+                bulletShadow: "shadow-orange-400/60"
               },
               red: {
                 bg: "bg-red-500",
                 text: "text-red-400",
+                hover: "group-hover:text-zinc-400",
                 bullet: "bg-red-400",
                 shadow: "shadow-red-500/50",
                 bulletShadow: "shadow-red-400/60"
               }
             };
-            const theme = colors[experience.color];
+            const theme = colors[experience.color] || colors.sky;
 
             return (
-              <React.Fragment key={i}>
+              <React.Fragment key={i} >
                 <motion.div
                   variants={cardVariants}
                   className={`relative flex items-center justify-between md:justify-normal ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''} group pb-12`}
@@ -459,7 +462,7 @@ function App() {
                   <div className={`flex items-center justify-center w-4 h-4 rounded-full ${theme.bg} border-4 border-slate-950 shadow-[0_0_10px] ${theme.shadow} z-10 md:order-1 ${i % 2 !== 0 ? 'md:-translate-x-1/2' : 'md:translate-x-1/2'} ml-[12px] md:ml-0`}></div>
                   <div className="liquid-glass p-8 flex flex-col gap-4 group w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)]">
                     <div>
-                      <h3 className="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">
+                      <h3 className={`text-2xl font-bold text-slate-100 ${theme.hover} transition-colors`}>
                         {experience.role || experience.degree}
                       </h3>
                       <p className={`${theme.text} font-medium text-lg`}>
@@ -493,26 +496,28 @@ function App() {
                   </div>
                 </motion.div>
 
-                {isYearEnding && (
-                  <div className="w-full relative flex items-center justify-center py-12">
-                    <div className="absolute left-5 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="z-10 bg-slate-950 px-4 text-xs font-bold text-slate-500 tracking-[0.4em] uppercase whitespace-nowrap mr-[-0.4em]"
-                      >
-                        {currYear}
-                      </motion.span>
+                {
+                  isYearEnding && (
+                    <div className="w-full relative flex items-center justify-center py-12">
+                      <div className="absolute left-5 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
+                        <motion.span
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          className="z-10 bg-slate-950 px-4 text-xs font-bold text-slate-500 tracking-[0.4em] uppercase whitespace-nowrap mr-[-0.4em]"
+                        >
+                          {currYear}
+                        </motion.span>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )
+                }
               </React.Fragment>
             );
           })}
         </div>
-      </motion.section>
-    </div>
+      </motion.section >
+    </div >
   );
 }
 
