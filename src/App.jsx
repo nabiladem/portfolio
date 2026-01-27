@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaJava, FaChartBar, FaDatabase, FaCubes } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaJava, FaChartBar, FaDatabase, FaCubes, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import {
   SiPython, SiGo, SiC, SiJavascript, SiTypescript,
   SiSwift, SiKotlin, SiRust, SiSpringboot, SiNodedotjs, SiReact,
@@ -14,8 +14,8 @@ import Lenis from '@studio-freight/lenis'
 import { useEffect } from 'react'
 
 const socialIcons = [
-  { icon: <FaGithub />, link: "https://github.com/nabiladem" },
-  { icon: <FaLinkedin />, link: "https://linkedin.com/in/nabiladem" }
+  { icon: <FaLinkedin />, link: "https://linkedin.com/in/nabiladem" },
+  { icon: <FaGithub />, link: "https://github.com/nabiladem" }
 ];
 
 const skillIcons = {
@@ -85,7 +85,7 @@ const projects = [
     stack: ["React", "JavaScript", "Tailwind CSS"],
     github: "https://github.com/nabiladem/portfolio",
     link: "https://nabiladem.com"
-  },
+  }
 ];
 
 const experiences = [
@@ -100,7 +100,7 @@ const experiences = [
                   • Implemented Kafka-based event-driven architecture, enabling real-time data streaming and reducing latency in mission-critical operations by 45%
                   • Collaborated with cross-functional Agile teams and utilized CI/CD pipelines, Git, and Docker to deliver secure, scalable backend solutions on AWS and GCP`,
     stack: ["Java", "Spring Boot", "Kafka"],
-    color: "sky",
+    color: "sky"
   },
   {
     company: "FedEx",
@@ -110,7 +110,7 @@ const experiences = [
                   • Automated project intake and reporting workflows between Digital.ai Agility and Microfocus PPM, cutting report turnaround time from 48 hours to under 10 minutes
                   • Enhanced Agile release train forecasting accuracy by 25%, supporting data-driven decision-making for resource allocation and program planning`,
     stack: ["Java", "Power BI"],
-    color: "orange",
+    color: "orange"
   },
   {
     company: "University of North Carolina at Chapel Hill & Intel",
@@ -119,7 +119,7 @@ const experiences = [
     description: `• Researched web security and identity protection, developing OpenJar—a Google Chrome extension (HTML, CSS, JavaScript) for anonymous browsing
                   • Collaborated with Intel and UNC researchers to present project outcomes on cybersecurity and data privacy`,
     stack: ["Rust", "JavaScript"],
-    color: "sky",
+    color: "sky"
   },
   {
     company: "Rhodes College",
@@ -128,7 +128,7 @@ const experiences = [
     description: `• Mentored students in data structures, algorithms, and object-oriented programming in Java, Python, and C
                   • Improved average student performance through one-on-one instruction and code review sessions`,
     stack: ["Python", "Java", "C"],
-    color: "red",
+    color: "red"
   },
   {
     school: "Rhodes College",
@@ -142,8 +142,8 @@ const experiences = [
                   • COMP 355: Advanced Algorithms
                   • COMP 241: Data Structures & Algorithms`,
     honors: ["cum laude", "Upsilon Pi Epsilon"],
-    color: "red",
-  },
+    color: "red"
+  }
 ]
 
 function App() {
@@ -516,7 +516,20 @@ function App() {
             );
           })}
         </div>
-      </motion.section >
+      </motion.section>
+
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewpor={{ once: true, margin:"-100px" }}
+        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-32"
+        >
+        <div className="flex items-center gap-4 mb-12">
+          <h2 className="text-3xl font-bold text-slate-100">Let's Connect!</h2>
+          <div className="h-[1px] flex-grow bg-slate-800"></div>
+        </div>
+      </motion.section>
     </div >
   );
 }
