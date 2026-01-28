@@ -529,6 +529,21 @@ function App() {
           <h2 className="text-3xl font-bold text-slate-100">Let's Connect!</h2>
           <div className="h-[1px] flex-grow bg-slate-800"></div>
         </div>
+        <div className="flex justify-center items-center py-12">
+          <motion.div
+            variants={containerVariants}
+            className="liquid-glass p-10 md:p-16 max-w-2xl w-full text-center relative overflow-hidden group"
+            >
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-700"></div>
+            <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Ready to build something together?</h3>
+                <p className="text-slate-400 text-lg leading-relaxed">
+                  I am open for new full-time as well as freelance opportunities.
+                  My inbox is always open whether you have a question or just want to chat!
+                </p>
+              </div>
+          </motion.div>
+        </div>
       </motion.section>
     </div >
   );
