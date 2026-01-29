@@ -539,7 +539,7 @@ function App() {
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Ready to build something together?</h3>
                 <p className="text-slate-400 text-lg leading-relaxed">
                   I am open for new full-time as well as freelance opportunities.
-                  My inbox is always open whether you have a question or just want to chat!
+                  My inbox is open whether you have a question or want to chat!
                 </p>
               </div>
           </motion.div>
