@@ -522,7 +522,7 @@ function App() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewpor={{ once: true, margin:"-100px" }}
+        viewport={{ once: true, margin:"-100px" }}
         className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-32"
         >
         <div className="flex items-center gap-4 mb-12">
@@ -541,7 +541,30 @@ function App() {
                   I am open for new full-time as well as freelance opportunities.
                   My inbox is open whether you have a question or want to chat!
                 </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 relative z-10">
+                <motion.a
+                  href="mailto:nabiladem@gmail.com"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all"
+                >
+                  <FaEnvelope className="text-xl" />
+                  Say Hello
+                </motion.a>
+
+                <motion.a
+                  href="https://linkedin.com/in/nabiladem"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center justify-center gap-3 liquid-glass px-8 py-4 rounded-xl border-white/10 hover:border-white/30 text-slate-200 transition-all font-bold"
+                >
+                  <FaLinkedin className="text-xl" />
+                  LinkedIn
+                </motion.a>
               </div>
+            </div>
           </motion.div>
         </div>
       </motion.section>
