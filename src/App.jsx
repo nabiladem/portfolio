@@ -579,12 +579,20 @@ function App() {
                     placeholder="What would like to talk about?"
                   ></textarea>
                 </div>
+
+                <motion.button
+                  type="submit"
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full liquid-glass border-white/10 shadow-none text-slate-100 font-bold py-4 transition-all flex items-center justify-center gap-2 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                >
+                  Send
+                </motion.button>
               </form>
             </div>
           </motion.div>
         </div>
       </motion.section>
-    </div >
+    </div>
   );
 }
 
