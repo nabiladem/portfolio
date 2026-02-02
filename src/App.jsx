@@ -522,9 +522,9 @@ function App() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin:"-100px" }}
+        viewport={{ once: true, margin: "-100px" }}
         className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-32"
-        >
+      >
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-100">Let's Connect!</h2>
           <div className="h-[1px] flex-grow bg-slate-800"></div>
@@ -533,37 +533,53 @@ function App() {
           <motion.div
             variants={containerVariants}
             className="liquid-glass p-10 md:p-16 max-w-2xl w-full text-center relative overflow-hidden group"
-            >
+          >
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-700"></div>
             <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Ready to build something together?</h3>
-                <p className="text-slate-400 text-lg leading-relaxed">
-                  I am open for new full-time as well as freelance opportunities.
-                  My inbox is open whether you have a question or want to chat!
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 relative z-10">
-                <motion.a
-                  href="mailto:nabiladem@gmail.com"
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all"
-                >
-                  <FaEnvelope className="text-xl" />
-                  Say Hello
-                </motion.a>
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Ready to build something together?</h3>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                I am open for new full-time as well as freelance opportunities.
+                My inbox is open whether you have a question or want to chat!
+              </p>
 
-                <motion.a
-                  href="https://linkedin.com/in/nabiladem"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-3 liquid-glass px-8 py-4 rounded-xl border-white/10 hover:border-white/30 text-slate-200 transition-all font-bold"
-                >
-                  <FaLinkedin className="text-xl" />
-                  LinkedIn
-                </motion.a>
-              </div>
+              <form
+                action="https://formspree.io/f/{F0RM_ID_HERE}"
+                method="POST"
+                className="space-y-4 text-left"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Your Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      className="w-full bg-slate-900/40 border border-slate-800/50 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-slate-600"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      className="w-full bg-slate-900/40 border border-slate-800/50 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-slate-600"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Message</label>
+                  <textarea
+                    name="message"
+                    required
+                    rows="4"
+                    className="w-full bg-slate-900/40 border border-slate-800/50 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-slate-600 resize-none"
+                    placeholder="What would like to talk about?"
+                  ></textarea>
+                </div>
+              </form>
             </div>
           </motion.div>
         </div>
