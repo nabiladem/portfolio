@@ -153,12 +153,10 @@ function App() {
   };
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: "easeOut",
         staggerChildren: 0.2
       }
     }
