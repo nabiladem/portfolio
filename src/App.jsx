@@ -325,10 +325,10 @@ function App() {
         viewport={{ once: true, margin: "-100px" }}
         className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20"
       >
-        <div className="flex items-center gap-4 mb-12">
+        <motion.div variants={cardVariants} className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-100">My Projects</h2>
           <div className="h-[1px] flex-grow bg-slate-800"></div>
-        </div>
+        </motion.div>
 
         <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, i) =>
@@ -525,13 +525,13 @@ function App() {
         viewport={{ once: true, margin: "-100px" }}
         className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-32"
       >
-        <div className="flex items-center gap-4 mb-12">
+        <motion.div variants={cardVariants} className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-100">Let's Connect!</h2>
           <div className="h-[1px] flex-grow bg-slate-800"></div>
-        </div>
+        </motion.div>
         <div className="flex justify-center items-center py-12">
           <motion.div
-            variants={containerVariants}
+            variants={cardVariants}
             className="liquid-glass p-10 md:p-16 max-w-2xl w-full text-center relative overflow-hidden group"
           >
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-700"></div>
