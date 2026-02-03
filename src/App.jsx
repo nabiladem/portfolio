@@ -554,7 +554,7 @@ function App() {
                       type="text"
                       name="name"
                       required
-                      className="w-full bg-slate-900/40 border border-slate-800/50 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-slate-600"
+                      className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 cursor-text"
                       placeholder="Your Name"
                     />
                   </div>
@@ -564,7 +564,7 @@ function App() {
                       type="email"
                       name="email"
                       required
-                      className="w-full bg-slate-900/40 border border-slate-800/50 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-slate-600"
+                      className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 cursor-text"
                       placeholder="you@example.com"
                     />
                   </div>
@@ -575,7 +575,7 @@ function App() {
                     name="message"
                     required
                     rows="4"
-                    className="w-full bg-slate-900/40 border border-slate-800/50 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-all placeholder:text-slate-600 resize-none"
+                    className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 resize-none cursor-text"
                     placeholder="What would like to talk about?"
                   ></textarea>
                 </div>
