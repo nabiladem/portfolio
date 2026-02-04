@@ -547,8 +547,9 @@ function App() {
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Your Name</label>
+                    <label htmlFor="contact_name" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Your Name</label>
                     <input
+                      id="contact_name"
                       type="text"
                       name="name"
                       required
@@ -557,8 +558,9 @@ function App() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Email</label>
+                    <label htmlFor="contact_email" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Email</label>
                     <input
+                      id="contact_email"
                       type="email"
                       name="email"
                       required
@@ -568,8 +570,9 @@ function App() {
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Message</label>
+                  <label htmlFor="contact_message" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Message</label>
                   <textarea
+                    id="contact_message"
                     name="message"
                     required
                     rows="4"
