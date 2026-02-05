@@ -545,6 +545,7 @@ function App() {
                 method="POST"
                 className="space-y-4 text-left"
               >
+                <input type="text" name="_gotcha" style={{ display: 'none' }} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label htmlFor="contact_name" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Your Name</label>
