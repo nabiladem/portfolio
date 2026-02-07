@@ -213,6 +213,34 @@ function App() {
     return () => lenis.destroy()
   }, [])
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus("SENDING");
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("https://formspree.io/f/meeljdqy", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setFormStatus("SUCCESS");
+        e.target.reset();
+        setTimeout(() => setFormStatus("INITIAL"), 3000);
+      } else {
+        setFormStatus("ERROR");
+      }
+    } catch (error) {
+      console.error(error);
+      setFormStatus("ERROR");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-start min-h-screen py-8 md:py-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
       <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-24 monitor:gap-32 max-w-[1400px] monitor:max-w-[1800px] w-full mx-auto py-4 md:py-0">
