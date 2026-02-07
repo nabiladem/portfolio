@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaJava, FaChartBar, FaDatabase, FaCubes, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import {
   SiPython, SiGo, SiC, SiJavascript, SiTypescript,
@@ -563,68 +563,118 @@ function App() {
           >
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-700"></div>
             <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Ready to build something together?</h3>
-              <p className="text-slate-400 text-lg leading-relaxed">
-                I am open for new full-time as well as freelance opportunities.
-                My inbox is open whether you have a question or want to chat!
-              </p>
+              <AnimatePresence mode="wait">
+                {formStatus === "SUCCESS" ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.5 }}
+                    className="py-12 space-y-6 flex flex-col items-center justify-center text-center"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                      <motion.div
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                      >
+                        <svg className="w-10 h-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </motion.div>
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Thanks for reaching out!</h3>
+                      <p className="text-slate-400 text-lg leading-relaxed">
+                        I have received your message and will get back to you as soon as possible.
+                      </p>
+                    </div>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setFormStatus("INITIAL")}
+                      className="liquid-glass px-6 py-3 rounded-lg font-bold text-slate-100 hover:text-blue-400 transition-colors duration-300"
+                    >
+                      Send Another Message
+                    </motion.button>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="space-y-8"
+                  >
+                    <div className="space-y-4">
+                      <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Ready to build something together?</h3>
+                      <p className="text-slate-400 text-lg leading-relaxed">
+                        I am open for new full-time as well as freelance opportunities.
+                        My inbox is open whether you have a question or want to chat!
+                      </p>
+                    </div>
 
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-4 text-left"
-              >
-                <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" style={{ display: 'none' }} />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label htmlFor="contact_name" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Your Name</label>
-                    <input
-                      id="contact_name"
-                      type="text"
-                      name="name"
-                      required
-                      className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 cursor-text"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <label htmlFor="contact_email" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Email</label>
-                    <input
-                      id="contact_email"
-                      type="email"
-                      name="email"
-                      required
-                      className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 cursor-text"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <label htmlFor="contact_message" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Message</label>
-                  <textarea
-                    id="contact_message"
-                    name="message"
-                    required
-                    rows="4"
-                    className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 resize-none cursor-text"
-                    placeholder="What would like to talk about?"
-                  ></textarea>
-                </div>
+                    <motion.form
+                      onSubmit={handleSubmit}
+                      className="space-y-4 text-left"
+                    >
+                      <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" style={{ display: 'none' }} />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                          <label htmlFor="contact_name" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Your Name</label>
+                          <input
+                            id="contact_name"
+                            type="text"
+                            name="name"
+                            required
+                            className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 cursor-text"
+                            placeholder="Your Name"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <label htmlFor="contact_email" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Email</label>
+                          <input
+                            id="contact_email"
+                            type="email"
+                            name="email"
+                            required
+                            className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 cursor-text"
+                            placeholder="you@example.com"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-1">
+                        <label htmlFor="contact_message" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1 cursor-pointer">Message</label>
+                        <textarea
+                          id="contact_message"
+                          name="message"
+                          required
+                          rows="4"
+                          className="w-full bg-slate-950/20 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-white/30 focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all placeholder:text-slate-600 resize-none cursor-text"
+                          placeholder="What would like to talk about?"
+                        ></textarea>
+                      </div>
 
-                <motion.button
-                  type="submit"
-                  disabled={formStatus === "SENDING"}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full liquid-glass border-white/10 shadow-none text-slate-100 font-bold py-4 transition-all flex items-center justify-center gap-2 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] disabled:opacity-50"
-                >
-                  {formStatus === "SENDING" ? "Sending..." : "Send"}
-                </motion.button>
+                      <motion.button
+                        type="submit"
+                        disabled={formStatus === "SENDING"}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full liquid-glass border-white/10 shadow-none text-slate-100 font-bold py-4 transition-all flex items-center justify-center gap-2 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] disabled:opacity-50"
+                      >
+                        {formStatus === "SENDING" ? "Sending..." : "Send"}
+                      </motion.button>
 
-                {formStatus === "ERROR" && (
-                  <p className="text-red-400 text-xs text-center mt-2 animate-pulse">
-                    Something went wrong. Please try again.
-                  </p>
+                      {formStatus === "ERROR" && (
+                        <p className="text-red-400 text-xs text-center mt-2 animate-pulse">
+                          Something went wrong. Please try again or email me directly.
+                        </p>
+                      )}
+                    </motion.form>
+                  </motion.div>
                 )}
-              </form>
+              </AnimatePresence>
             </div>
           </motion.div>
         </div>
