@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaJava, FaChartBar, FaDatabase, FaCubes, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import {
@@ -147,6 +147,8 @@ const experiences = [
 ]
 
 function App() {
+  const [formStatus, setFormStatus] = useState("INITIAL");
+  
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, y: 10 },
     visible: { opacity: 1, scale: 1, y: 0 }
