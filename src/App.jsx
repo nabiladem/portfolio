@@ -558,7 +558,7 @@ function App() {
         <div className="flex justify-center items-center py-12">
           <motion.div
             variants={cardVariants}
-            className="liquid-glass p-10 md:p-16 max-w-2xl w-full text-center relative overflow-hidden group"
+            className="liquid-glass p-10 pb-8 md:p-16 md:pb-12 max-w-2xl w-full text-center relative overflow-hidden group"
           >
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-700"></div>
             <div className="space-y-4">
@@ -686,6 +686,30 @@ function App() {
                           Something went wrong. Please try again or email me directly.
                         </p>
                       )}
+
+                      <motion.div
+                        className="flex justify-center gap-6 mt-12"
+                      >
+                        <motion.a
+                          href="https://linkedin.com/in/nabiladem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variants={iconVariants}
+                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                          className="text-gray-500 hover:text-white text-2xl transition-colors"
+                        >
+                          <FaLinkedin />
+                        </motion.a>
+                        <motion.a
+                          href="mailto:adem.nabil00@gmail.com"
+                          variants={iconVariants}
+                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                          className="text-gray-500 hover:text-white text-2xl transition-colors"
+                        >
+                          <FaEnvelope />
+                        </motion.a>
+                      </motion.div>
+
                     </motion.form>
                   </motion.div>
                 )}
