@@ -11,7 +11,6 @@ import {
 } from 'react-icons/si';
 import { TbBrandCSharp, TbApi, TbRefresh, TbTestPipe, TbInfinity, TbHierarchy } from 'react-icons/tb';
 import Lenis from '@studio-freight/lenis'
-import { useEffect } from 'react'
 
 const socialIcons = [
   { icon: <FaLinkedin />, link: "https://linkedin.com/in/nabiladem" },
@@ -148,7 +147,7 @@ const experiences = [
 
 function App() {
   const [formStatus, setFormStatus] = useState("INITIAL");
-  
+
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, y: 10 },
     visible: { opacity: 1, scale: 1, y: 0 }
@@ -571,8 +570,7 @@ function App() {
               </p>
 
               <form
-                action="https://formspree.io/f/meeljdqy"
-                method="POST"
+                onSubmit={handleSubmit}
                 className="space-y-4 text-left"
               >
                 <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" style={{ display: 'none' }} />
@@ -614,11 +612,18 @@ function App() {
 
                 <motion.button
                   type="submit"
+                  disabled={formStatus === "SENDING"}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full liquid-glass border-white/10 shadow-none text-slate-100 font-bold py-4 transition-all flex items-center justify-center gap-2 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                  className="w-full liquid-glass border-white/10 shadow-none text-slate-100 font-bold py-4 transition-all flex items-center justify-center gap-2 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] disabled:opacity-50"
                 >
-                  Send
+                  {formStatus === "SENDING" ? "Sending..." : "Send"}
                 </motion.button>
+
+                {formStatus === "ERROR" && (
+                  <p className="text-red-400 text-xs text-center mt-2 animate-pulse">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
               </form>
             </div>
           </motion.div>
