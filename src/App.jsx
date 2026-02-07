@@ -230,7 +230,6 @@ function App() {
       if (response.ok) {
         setFormStatus("SUCCESS");
         e.target.reset();
-        setTimeout(() => setFormStatus("INITIAL"), 3000);
       } else {
         setFormStatus("ERROR");
       }
@@ -573,19 +572,35 @@ function App() {
                     transition={{ duration: 0.5 }}
                     className="py-12 space-y-6 flex flex-col items-center justify-center text-center"
                   >
-                    <div className="w-20 h-20 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-                      <motion.div
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                      >
-                        <svg className="w-10 h-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      </motion.div>
+                    <div className="relative w-20 h-20 rounded-full bg-emerald-500/10 shadow-[0_0_30px_rgba(16,185,129,0.2)] flex items-center justify-center overflow-hidden">
+                      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                        <motion.circle
+                          cx="50"
+                          cy="50"
+                          r="48"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="none"
+                          className="text-emerald-500/20"
+                          initial={{ pathLength: 0, rotate: -90 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}
+                        />
+                      </svg>
+
+                      <svg className="w-10 h-10 text-emerald-400 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <motion.path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 13l4 4L19 7"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 0.8, delay: 0.4, ease: [0.65, 0, 0.35, 1] }}
+                        />
+                      </svg>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Thanks for reaching out!</h3>
+                      <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Thank you for reaching out!</h3>
                       <p className="text-slate-400 text-lg leading-relaxed">
                         I have received your message and will get back to you as soon as possible.
                       </p>
