@@ -69,7 +69,7 @@ const projects = [
     title: "Raft",
     description: "Distributed Consensus Algorithm implementation in Go.",
     stack: ["Go"],
-    github: "https://github.com/nabiladem",
+    github: null,
     link: null
   },
   {
@@ -390,14 +390,16 @@ function App() {
               </div>
 
               <div className="flex items-center gap-6 pt-4 border-white/5 mt-auto">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-500 hover:text-white transition-all duration-300 flex items-center gap-2 text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
-                >
-                  <FaGithub className="text-xl" /> Source Code
-                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-500 hover:text-white transition-all duration-300 flex items-center gap-2 text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
+                  >
+                    <FaCode className="text-xl" title="View Source Code" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
@@ -559,7 +561,7 @@ function App() {
         <div className="flex justify-center items-center py-12">
           <motion.div
             variants={cardVariants}
-            className="liquid-glass p-10 pb-8 md:p-16 md:pb-12 max-w-2xl w-full text-center relative overflow-hidden group"
+            className="liquid-glass p-10 md:p-16 max-w-2xl w-full text-center relative overflow-hidden group"
           >
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-700"></div>
             <div className="space-y-4">
@@ -677,7 +679,7 @@ function App() {
                         type="submit"
                         disabled={formStatus === "SENDING"}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full liquid-glass border-white/10 shadow-none text-slate-100 font-bold py-4 transition-all flex items-center justify-center gap-2 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] disabled:opacity-50"
+                        className="w-full liquid-glass border-white/10 shadow-none text-slate-100 font-bold py-4 transition-all flex items-center justify-center gap-2 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
                       >
                         {formStatus === "SENDING" ? "Sending..." : "Send"}
                       </motion.button>
@@ -687,9 +689,6 @@ function App() {
                           Something went wrong. Please try again or email me directly.
                         </p>
                       )}
-
-
-
                     </motion.form>
                   </motion.div>
                 )}
@@ -725,7 +724,7 @@ function App() {
             variants={iconVariants}
             transition={{ delay: socialIcons.length * 0.1, type: "spring", stiffness: 300, damping: 20 }}
             className="text-gray-500 hover:text-white text-2xl transition-colors"
-            title="View This Site's Source Code"
+            title="This Site's Source Code"
           >
             <FaCode />
           </motion.a>
