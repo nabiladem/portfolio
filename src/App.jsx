@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaJava, FaChartBar, FaDatabase, FaCubes, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaJava, FaChartBar, FaDatabase, FaCubes, FaEnvelope, FaMapMarkerAlt, FaCode } from 'react-icons/fa';
 import {
   SiPython, SiGo, SiC, SiJavascript, SiTypescript,
   SiSwift, SiKotlin, SiRust, SiSpringboot, SiNodedotjs, SiReact,
@@ -14,7 +14,8 @@ import Lenis from '@studio-freight/lenis'
 
 const socialIcons = [
   { icon: <FaLinkedin />, link: "https://linkedin.com/in/nabiladem" },
-  { icon: <FaGithub />, link: "https://github.com/nabiladem" }
+  { icon: <FaGithub />, link: "https://github.com/nabiladem" },
+  { icon: <FaEnvelope />, link: "mailto:adem.nabil00@gmail.com" }
 ];
 
 const skillIcons = {
@@ -687,28 +688,7 @@ function App() {
                         </p>
                       )}
 
-                      <motion.div
-                        className="flex justify-center gap-6 mt-12"
-                      >
-                        <motion.a
-                          href="https://linkedin.com/in/nabiladem"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          variants={iconVariants}
-                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                          className="text-gray-500 hover:text-white text-2xl transition-colors"
-                        >
-                          <FaLinkedin />
-                        </motion.a>
-                        <motion.a
-                          href="mailto:adem.nabil00@gmail.com"
-                          variants={iconVariants}
-                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                          className="text-gray-500 hover:text-white text-2xl transition-colors"
-                        >
-                          <FaEnvelope />
-                        </motion.a>
-                      </motion.div>
+
 
                     </motion.form>
                   </motion.div>
@@ -718,7 +698,38 @@ function App() {
           </motion.div>
         </div>
       </motion.section>
-      <footer className="w-full pt-8 pb-8 text-center text-slate-500 text-md border-t border-white/5">
+      <footer className="w-full pt-12 pb-12 text-center text-slate-500 text-md border-t border-white/5 space-y-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex justify-center items-center gap-8"
+        >
+          {socialIcons.map((social, i) => (
+            <motion.a
+              key={i}
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={iconVariants}
+              transition={{ delay: i * 0.1, type: "spring", stiffness: 300, damping: 20 }}
+              className="text-gray-500 hover:text-white text-2xl transition-colors"
+            >
+              {social.icon}
+            </motion.a>
+          ))}
+          <motion.a
+            href="https://github.com/nabiladem/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={iconVariants}
+            transition={{ delay: socialIcons.length * 0.1, type: "spring", stiffness: 300, damping: 20 }}
+            className="text-gray-500 hover:text-white text-2xl transition-colors"
+            title="View This Site's Source Code"
+          >
+            <FaCode />
+          </motion.a>
+        </motion.div>
         <p>© {new Date().getFullYear()} Nabil Adem. All rights reserved.</p>
       </footer>
     </div>
