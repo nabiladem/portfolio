@@ -397,7 +397,7 @@ function App() {
                     rel="noopener noreferrer"
                     className="text-slate-500 hover:text-white transition-all duration-300 flex items-center gap-2 text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
                   >
-                    <FaCode className="text-xl" title="View Source Code" />
+                    <FaCode className="text-xl" title="View Repo" />
                   </a>
                 )}
               </div>
@@ -697,7 +697,7 @@ function App() {
           </motion.div>
         </div>
       </motion.section>
-      <footer className="w-full pt-12 pb-12 text-center text-slate-500 text-md border-t border-white/5 space-y-6">
+      <footer className="w-full pt-12 pb-10 text-center text-slate-500 border-t border-white/5 space-y-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -724,7 +724,7 @@ function App() {
             variants={iconVariants}
             transition={{ delay: socialIcons.length * 0.1, type: "spring", stiffness: 300, damping: 20 }}
             className="text-gray-500 hover:text-white text-2xl transition-colors"
-            title="This Site's Source Code"
+            title="This Site's Repo"
           >
             <FaCode />
           </motion.a>
