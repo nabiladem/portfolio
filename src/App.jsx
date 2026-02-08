@@ -240,7 +240,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen py-8 md:py-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
+    <div className="flex flex-col items-center justify-start min-h-screen pt-8 md:pt-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
       <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-24 monitor:gap-32 max-w-[1400px] monitor:max-w-[1800px] w-full mx-auto py-4 md:py-0">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
@@ -549,7 +549,7 @@ function App() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-32"
+        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-10"
       >
         <motion.div variants={cardVariants} className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-100">Let's Connect!</h2>
@@ -718,6 +718,9 @@ function App() {
           </motion.div>
         </div>
       </motion.section>
+      <footer className="w-full pt-8 pb-8 text-center text-slate-500 text-md border-t border-white/5">
+        <p>© {new Date().getFullYear()} Nabil Adem. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
