@@ -729,7 +729,9 @@ function App() {
             <FaCode />
           </motion.a>
         </motion.div>
-        <p>© {new Date().getFullYear()} Nabil Adem. All rights reserved.</p>
+        <p className="text-xs opacity-50 transition-opacity cursor-default uppercase tracking-wider">
+          © {new Date().getFullYear()} Nabil Adem. All rights reserved.
+        </p>
       </footer>
     </div>
   );
