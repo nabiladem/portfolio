@@ -1,8 +1,8 @@
 # Nabil Adem's Portfolio
 
-A simple website to display my professional life publicly.
+A website to display my professional life. View it at [nabiladem.com](https://nabiladem.com).
 
-## Planned Stack
+## Stack
 
 - React
 - Tailwind CSS
