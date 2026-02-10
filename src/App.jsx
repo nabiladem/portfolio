@@ -148,6 +148,22 @@ const experiences = [
 
 function App() {
   const [formStatus, setFormStatus] = useState("INITIAL");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, y: 10 },
@@ -196,12 +212,15 @@ function App() {
     </span>
   );
 
+  const lenisRef = React.useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.15,
       duration: 1.2,
       wheelMultiplier: 1,
     })
+    lenisRef.current = lenis;
 
     function raf(time) {
       lenis.raf(time)
@@ -240,8 +259,60 @@ function App() {
     }
   };
 
+  const [hoveredLink, setHoveredLink] = useState(null);
+
   return (
     <div className="flex flex-col items-center justify-start min-h-screen pt-8 md:pt-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
+      <nav className={`fixed top-8 left-0 right-0 z-50 flex justify-center transition-all duration-500 pointer-events-none ${scrolled ? 'top-6' : 'top-8'}`}>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`px-2 py-1.5 rounded-full border transition-all duration-500 pointer-events-auto backdrop-blur-xl flex items-center ${scrolled ? 'bg-slate-950/40 border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]' : 'bg-white/5 border-white/5 shadow-[0_0_20px_0_rgba(255,255,255,0.05)]'}`}
+        >
+          <ul
+            className="flex items-center gap-1 md:gap-2"
+            onMouseLeave={() => setHoveredLink(null)}
+          >
+            {navLinks.map((link) => (
+              <li key={link.name} className="relative">
+                {hoveredLink === link.name && (
+                  <motion.div
+                    layoutId="navbar-hover"
+                    className="absolute inset-0 bg-white/10 rounded-full z-0"
+                    transition={{
+                      type: "spring",
+                      bounce: 0.45,
+                      duration: 0.5
+                    }}
+                  />
+                )}
+                <a
+                  href={link.href}
+                  onMouseEnter={() => setHoveredLink(link.name)}
+                  className={`relative z-10 block px-4 py-1.5 text-[10px] md:text-xs font-sans uppercase tracking-wider transition-colors duration-300 ${hoveredLink === link.name ? 'text-white' : 'text-slate-400'}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (lenisRef.current) {
+                      if (link.name === 'Contact') {
+                        lenisRef.current.scrollTo('bottom', {
+                          duration: 2,
+                        });
+                      } else {
+                        lenisRef.current.scrollTo(link.href, {
+                          offset: -80,
+                          duration: 1.5,
+                        });
+                      }
+                    }
+                  }}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </nav>
       <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-24 monitor:gap-32 max-w-[1400px] monitor:max-w-[1800px] w-full mx-auto py-4 md:py-0">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
@@ -308,7 +379,7 @@ function App() {
           </motion.div>
         </motion.header>
 
-        <div className="flex flex-col gap-8">
+        <div id="skills" className="flex flex-col gap-8">
           <h2 className="text-2xl font-bold text-slate-100">My Skills</h2>
 
           <div className="grid grid-cols-1 monitor:grid-cols-2 gap-x-16 gap-y-8 monitor:gap-y-32">
@@ -346,6 +417,7 @@ function App() {
       </div>
 
       <motion.section
+        id="projects"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -407,6 +479,7 @@ function App() {
       </motion.section>
 
       <motion.section
+        id="experience"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -548,6 +621,7 @@ function App() {
       </motion.section>
 
       <motion.section
+        id="contact"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
