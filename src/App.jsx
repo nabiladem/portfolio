@@ -260,8 +260,8 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen pt-16 md:pt-20 px-6 md:px-12 bg-slate-950 overflow-x-hidden transition-all duration-500">
-      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 transition-all duration-500 pointer-events-none">
+    <div className="flex flex-col items-center justify-start min-h-screen pt-[70px] px-6 md:px-12 bg-slate-950 overflow-x-hidden transition-all duration-500">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-[14px] transition-all duration-500 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
