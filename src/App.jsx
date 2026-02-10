@@ -161,7 +161,7 @@ function App() {
   }, []);
 
   const navLinks = [
-    { name: 'Skills', href: '#skills' },
+    { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
@@ -293,6 +293,8 @@ function App() {
                     if (lenisRef.current) {
                       if (link.name === 'Contact') {
                         lenisRef.current.scrollTo('bottom', { duration: 2 });
+                      } else if (link.name === 'About') {
+                        lenisRef.current.scrollTo(0, { duration: 1.5 });
                       } else {
                         lenisRef.current.scrollTo(link.href, {
                           offset: -85,
@@ -311,10 +313,11 @@ function App() {
       </nav>
       <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-12 lg:gap-20 xl:gap-24 monitor:gap-32 max-w-[1400px] monitor:max-w-[1800px] w-full mx-auto py-4 md:py-0">
         <motion.header
+          id="about"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           whileHover="hovered"
-          className="text-left space-y-6 p-8 w-full max-w-2xl monitor:max-w-3xl liquid-glass relative overflow-hidden"
+          className="text-left space-y-6 p-8 w-full max-w-2xl monitor:max-w-3xl liquid-glass relative overflow-hidden scroll-mt-24"
         >
           <motion.img
             src="/images/headshot.jpg"
@@ -413,11 +416,12 @@ function App() {
       </div>
 
       <motion.section
+        id="projects"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20"
+        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20 scroll-mt-24"
       >
         <motion.div variants={cardVariants} className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-100">My Projects</h2>
