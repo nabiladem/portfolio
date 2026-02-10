@@ -149,6 +149,8 @@ const experiences = [
 function App() {
   const [formStatus, setFormStatus] = useState("INITIAL");
   const [scrolled, setScrolled] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
+  const lenisRef = React.useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -212,8 +214,6 @@ function App() {
     </span>
   );
 
-  const lenisRef = React.useRef(null);
-
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.15,
@@ -259,11 +259,9 @@ function App() {
     }
   };
 
-  const [hoveredLink, setHoveredLink] = useState(null);
-
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen pt-8 md:pt-10 px-6 md:px-12 bg-slate-950 overflow-x-hidden">
-      <nav className={`fixed top-8 left-0 right-0 z-50 flex justify-center transition-all duration-500 pointer-events-none ${scrolled ? 'top-6' : 'top-8'}`}>
+    <div className="flex flex-col items-center justify-start min-h-screen pt-16 md:pt-20 px-6 md:px-12 bg-slate-950 overflow-x-hidden transition-all duration-500">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 transition-all duration-500 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -294,12 +292,10 @@ function App() {
                     e.preventDefault();
                     if (lenisRef.current) {
                       if (link.name === 'Contact') {
-                        lenisRef.current.scrollTo('bottom', {
-                          duration: 2,
-                        });
+                        lenisRef.current.scrollTo('bottom', { duration: 2 });
                       } else {
                         lenisRef.current.scrollTo(link.href, {
-                          offset: -80,
+                          offset: -85,
                           duration: 1.5,
                         });
                       }
@@ -379,7 +375,7 @@ function App() {
           </motion.div>
         </motion.header>
 
-        <div id="skills" className="flex flex-col gap-8">
+        <div id="skills" className="flex flex-col gap-8 scroll-mt-20">
           <h2 className="text-2xl font-bold text-slate-100">My Skills</h2>
 
           <div className="grid grid-cols-1 monitor:grid-cols-2 gap-x-16 gap-y-8 monitor:gap-y-32">
@@ -417,7 +413,6 @@ function App() {
       </div>
 
       <motion.section
-        id="projects"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -484,7 +479,7 @@ function App() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20"
+        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-20 scroll-mt-20"
       >
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-100">My Experiences</h2>
@@ -626,7 +621,7 @@ function App() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-10"
+        className="w-full max-w-[1400px] monitor:max-w-[1800px] mt-24 md:mt-32 px-4 pb-10 scroll-mt-24"
       >
         <motion.div variants={cardVariants} className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-100">Let's Connect!</h2>
