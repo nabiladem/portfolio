@@ -165,6 +165,7 @@ function App() {
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Resume', href: '/resume.pdf', isExternal: true },
   ];
 
   const iconVariants = {
@@ -286,15 +287,19 @@ function App() {
                 )}
                 <a
                   href={link.href}
+                  target={link.isExternal ? "_blank" : undefined}
+                  rel={link.isExternal ? "noopener noreferrer" : undefined}
                   onMouseEnter={() => setHoveredLink(link.name)}
                   className={`relative z-10 block px-4 py-1.5 text-[10px] md:text-xs font-sans uppercase tracking-wider transition-colors duration-300 ${hoveredLink === link.name ? 'text-white' : 'text-slate-400'}`}
                   onClick={(e) => {
+                    if (link.isExternal) return; 
+                    
                     e.preventDefault();
                     if (lenisRef.current) {
-                      if (link.name === 'Contact') {
-                        lenisRef.current.scrollTo('bottom', { duration: 2 });
-                      } else if (link.name === 'About') {
+                      if (link.name === 'About') {
                         lenisRef.current.scrollTo(0, { duration: 1.5 });
+                      } else if (link.name === 'Contact') {
+                        lenisRef.current.scrollTo('bottom', { duration: 2 });
                       } else {
                         lenisRef.current.scrollTo(link.href, {
                           offset: -85,
@@ -351,7 +356,7 @@ function App() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mt-6 text-sm text-slate-400 liquid-glass p-4 px-6 md:px-10 w-full sm:w-fit mx-auto">
-            <span>📍 Phoenix, AZ & Nashville, TN</span>
+            <span>📍 Phoenix, AZ</span>
             <span className="hidden sm:inline text-slate-600">|</span>
             <span className="text-slate-200 font-medium text-center">Open to relocation</span>
           </div>
