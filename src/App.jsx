@@ -269,7 +269,7 @@ function App() {
           className={`px-2 py-1.5 rounded-full border transition-all duration-500 pointer-events-auto backdrop-blur-xl flex items-center ${scrolled ? 'bg-slate-950/40 border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]' : 'bg-white/5 border-white/5 shadow-[0_0_20px_0_rgba(255,255,255,0.05)]'}`}
         >
           <ul
-            className="flex items-center gap-1 md:gap-2"
+            className="flex items-center gap-0.5 md:gap-2"
             onMouseLeave={() => setHoveredLink(null)}
           >
             {navLinks.map((link) => (
@@ -290,7 +290,7 @@ function App() {
                   target={link.isExternal ? "_blank" : undefined}
                   rel={link.isExternal ? "noopener noreferrer" : undefined}
                   onMouseEnter={() => setHoveredLink(link.name)}
-                  className={`relative z-10 block px-4 py-1.5 text-[10px] md:text-xs font-sans uppercase tracking-wider transition-colors duration-300 ${hoveredLink === link.name ? 'text-white' : 'text-slate-400'}`}
+                  className={`relative z-10 block px-2.5 md:px-4 py-1.5 text-[10px] md:text-xs font-sans uppercase tracking-wider transition-colors duration-300 ${hoveredLink === link.name ? 'text-white' : 'text-slate-400'}`}
                   onClick={(e) => {
                     if (link.isExternal) return;
 
