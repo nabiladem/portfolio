@@ -4,7 +4,7 @@
 
 [![nabiladem.com](https://img.shields.io/website?url=https%3A%2F%2Fnabiladem.com&label=nabiladem.com&up_message=online&down_message=offline&style=flat-square&logo=vercel)](https://nabiladem.com)
 
-Welcome to my personal website, showcasing my professional and personal journey in software development. View it here: [nabiladem.com](https://nabiladem.com).
+Welcome to my website showcasing my professional and personal journey in software development. View it here: [nabiladem.com](https://nabiladem.com).
 
 ![Project Screenshot](./public/images/screenshot.png)
 
